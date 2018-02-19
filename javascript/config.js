@@ -7,8 +7,8 @@ var config = {
 
   electron: {
     options: {},
-    // fullscreen: true,
-    fullscreen: false,
+    fullscreen: true,
+    // fullscreen: false,
     autoHideMenuBar: true,
     zoom: 1,
   },

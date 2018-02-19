@@ -1,3 +1,23 @@
-<div>
-    <h1>Weather</h1>
+<div class="currentweather" v-if="visible">
+    <div class="weathericon">
+        <div :class="'wi ' + weatherType"></div>
+    </div>
+    <div class="fa-home">
+        <div class="wind">
+            <p>Windspeed: {{ windSpeed }}</p>
+            <p>Winddirection {{ windDirection }}</p>
+            <p>WindDegrees {{ windDeg }}</p>
+        </div>
+
+        <div class="temperature">
+            <p>Temperatur {{ temperature }}</p>
+            <p>Sunrise/set icon {{ sunriseSunsetIcon }}</p>
+            <p>Sunrise/set time: {{ sunriseSunsetTime }}</p>
+            <p>Location: {{ fetchedLocatioName }}</p>
+        </div>
+
+    </div>
+    <div class="humidityIcon humidity-padding">
+        <span>{{ humidity }}</span>
+    </div>
 </div>

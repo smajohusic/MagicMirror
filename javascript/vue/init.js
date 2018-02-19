@@ -1,52 +1,34 @@
 // import Vue from 'vue';
 import Vue from 'vue/dist/vue.js';
+import config from '../config.js';
+
+// Only for debugging
+Vue.config.devtools = true;
+Vue.config.silent = false;
 
 import weatherComponent from './components/weather/weather';
 
-new Vue({
+const app = new Vue({
   el: '#app',
 
-  components: {
-    weatherComponent,
+  data() {
+    return {
+      globalConfig: config,
+    };
   },
+
+  computed: {},
+
+  components: {
+    weather: weatherComponent,
+  },
+
+  filters: {},
+
+  mounted() {
+    console.log('mounted fired');
+    // Global mounted
+  },
+
+  methods: {}
 });
-
-// window.addEventListener('load', function () {
-//   new Vue({
-//     el: '#app',
-//
-//     components: {
-//       weatherComponent,
-//     },
-//   });
-// });
-
-
-// new Vue({
-//   el: '#app',
-//
-//   data() {
-//     //
-//   },
-//
-//   computed: {
-//     //
-//   },
-//
-//   components: {
-//     weather: weather,
-//   },
-//
-//   filters: {
-//     // Global Filters
-//   },
-//
-//   mounted() {
-//     console.log('mounted fired');
-//     // Global mounted
-//   },
-//
-//   methods: {
-//     // Global methods?
-//   }
-// });

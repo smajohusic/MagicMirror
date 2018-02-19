@@ -12,6 +12,8 @@
 
     <link rel="icon" href="data:;base64,iVBORw0KGgo=">
     <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="css/weather-icons.css">
+    <link rel="stylesheet" type="text/css" href="css/weather.css">
 
 </head>
 <body>
@@ -23,7 +25,7 @@
     <!-- Weather -->
     <div class="region top left">
         <div class="container">
-            <weather-Component></weather-Component>
+            <weather></weather>
         </div>
     </div>
 
@@ -36,24 +38,12 @@
 <div class="region bottom bar">
     <div class="container"></div>
     <div class="region bottom left"><div class="container"></div></div>
-    <div class="region bottom center"><div class="container"><h1 id="welcome">Welcome to Alice</h1></div></div>
+    <div class="region bottom center"><div class="container"></div></div>
     <div class="region bottom right"><div class="container"></div></div>
 </div>
 <div class="region fullscreen above"><div class="container"></div></div>
 </div>
-<!-- For some reason Vue does not want to be required in the init.js file, so this will do for now -->
-<!--<script type="text/javascript" src="vue/vue.min.js"></script>-->
+
 <script type="text/javascript" src="dist/app.js"></script>
-<!--<script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>-->
-
-<!--<script>-->
-  <!--new Vue({-->
-    <!--el: '#app',-->
-
-    <!--mounted() {-->
-      <!--console.log('mordi e mann');-->
-    <!--},-->
-  <!--});-->
-<!--</script>-->
 </body>
 </html>
