@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Alice</title>
+    <meta name="google" content="notranslate" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="mobile-web-app-capable" content="yes">
+
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+
+</head>
+<body>
+<div id="app">
+<div class="region fullscreen below"><div class="container"></div></div>
+<div class="region top bar">
+    <div class="container"></div>
+
+    <!-- Weather -->
+    <div class="region top left">
+        <div class="container">
+            <weather-Component></weather-Component>
+        </div>
+    </div>
+
+    <div class="region top center"><div class="container"></div></div>
+    <div class="region top right"><div class="container"></div></div>
+</div>
+<div class="region upper third"><div class="container"></div></div>
+<div class="region middle center"><div class="container"></div></div>
+<div class="region lower third"><div class="container"><br/></div></div>
+<div class="region bottom bar">
+    <div class="container"></div>
+    <div class="region bottom left"><div class="container"></div></div>
+    <div class="region bottom center"><div class="container"><h1 id="welcome">Welcome to Alice</h1></div></div>
+    <div class="region bottom right"><div class="container"></div></div>
+</div>
+<div class="region fullscreen above"><div class="container"></div></div>
+</div>
+<!-- For some reason Vue does not want to be required in the init.js file, so this will do for now -->
+<!--<script type="text/javascript" src="vue/vue.min.js"></script>-->
+<script type="text/javascript" src="dist/app.js"></script>
+<!--<script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>-->
+
+<!--<script>-->
+  <!--new Vue({-->
+    <!--el: '#app',-->
+
+    <!--mounted() {-->
+      <!--console.log('mordi e mann');-->
+    <!--},-->
+  <!--});-->
+<!--</script>-->
+</body>
+</html>
