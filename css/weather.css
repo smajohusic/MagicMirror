@@ -9,17 +9,17 @@
 }
 
 .currentweather .weathericon {
-    font-size: 208px;
+    font-size: 180px;
     color: white;
 }
 .currentweather  .temp {
     display: inline-block;
-    margin-left: 50px;
+    margin-left: 40px;
     color: #ffffff;
 
 }
 .currentweather  .title {
-    width: 140px;
+    width: 110px;
     display: inline-block;
     color: #b3b3b3;
 }
@@ -27,13 +27,5 @@
 .currentweather .header {
     color: #ffffff;
     text-transform: uppercase;
-    font-size: 28px;
+    font-size: 24px;
 }
-
-/*.currentweather .humidityIcon {*/
-    /*padding-right: 4px;*/
-/*}*/
-
-/*.currentweather .humidity-padding {*/
-    /*padding-bottom: 6px;*/
-/*}*/

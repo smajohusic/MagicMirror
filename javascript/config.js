@@ -40,6 +40,17 @@ var config = {
       roundTemp: false,
     },
 
+    jokes: {
+      apiEnpoints: [
+        'http://api.icndb.com/jokes/random'
+      ],
+      duration: 10 * 60 * 1000, // 10 minutes
+    },
+
+    clock: {
+      showDate: true,
+      showSeconds: false,
+    },
   }
 };
 

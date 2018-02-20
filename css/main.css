@@ -188,6 +188,9 @@ sup {
 
 .region.bottom {
     bottom: 0;
+    text-align: center;
+    color: #b3b3b3;
+    font-size: 24px;
 }
 
 .region.bottom .container:empty {

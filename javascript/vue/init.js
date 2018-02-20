@@ -7,6 +7,8 @@ Vue.config.devtools = true;
 Vue.config.silent = false;
 
 import weatherComponent from './components/weather/weather';
+import jokes from './components/jokes/jokes';
+import clock from './components/clock/clock';
 
 const app = new Vue({
   el: '#app',
@@ -21,12 +23,13 @@ const app = new Vue({
 
   components: {
     weather: weatherComponent,
+    jokes: jokes,
+    clock: clock,
   },
 
   filters: {},
 
   mounted() {
-    console.log('mounted fired');
     // Global mounted
   },
 

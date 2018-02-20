@@ -10,8 +10,8 @@ let mainWindow;
 
 function createAppWindow(config) {
   const electronOptionsDefaults = {
-    width: 1024,
-    height: 768,
+    width: 1920,
+    height: 1080,
     x: 0,
     y: 0,
     darkTheme: true,

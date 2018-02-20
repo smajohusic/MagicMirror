@@ -1,0 +1,8 @@
+<div class="clock-and-date" v-if="showClock">
+    <div class="clock">
+        <span>{{ clock.hours }}</span><span> : {{ clock.minutes }}</span><span v-if="showSeconds"> : {{ clock.seconds }}</span>
+    </div>
+    <div class="date" v-if="showDate">
+        <span>{{ date.day }}</span><span>/{{ date.month }}</span><span>/{{ date.year }}</span>
+    </div>
+</div>
