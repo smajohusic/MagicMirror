@@ -24,8 +24,6 @@ function createAppWindow(config) {
     backgroundColor: "#FFFF",
   };
 
-  console.log(__dirname + '/../../index.html');
-
   const electronOptions = Object.assign(electronOptionsDefaults, config.electron.options);
   const address = (config.address === void 0) || (config.address === '') ? (config.address = 'localhost') : config.address;
 
@@ -34,7 +32,9 @@ function createAppWindow(config) {
   mainWindow.loadURL(`http://${address}:${config.port}`);
 
   // Only for debugging
-  mainWindow.webContents.openDevTools();
+  if (config.defaults.debug) {
+    mainWindow.webContents.openDevTools();
+  }
 };
 
 // This method will be called when Electron has finished
