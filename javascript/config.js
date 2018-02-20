@@ -7,8 +7,8 @@ var config = {
 
   electron: {
     options: {},
-    fullscreen: true,
-    // fullscreen: false,
+    // fullscreen: true,
+    fullscreen: false,
     autoHideMenuBar: true,
     zoom: 1,
   },
@@ -23,7 +23,7 @@ var config = {
     weather: {
       location: 'Sarpsborg',
       locationID: '3140084',
-      appid: '',
+      appid: '5a92635a509d72a1c5a72fd50af77e56',
       updateInterval: 10 * 60 * 1000, // every 10 minutes
       units: 'metric',
       timeFormat: 24,

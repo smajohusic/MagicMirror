@@ -8,10 +8,32 @@
     transform: translate(0, -3px);
 }
 
-.currentweather .humidityIcon {
-    padding-right: 4px;
+.currentweather .weathericon {
+    font-size: 208px;
+    color: white;
+}
+.currentweather  .temp {
+    display: inline-block;
+    margin-left: 50px;
+    color: #ffffff;
+
+}
+.currentweather  .title {
+    width: 140px;
+    display: inline-block;
+    color: #b3b3b3;
 }
 
-.currentweather .humidity-padding {
-    padding-bottom: 6px;
+.currentweather .header {
+    color: #ffffff;
+    text-transform: uppercase;
+    font-size: 28px;
 }
+
+/*.currentweather .humidityIcon {*/
+    /*padding-right: 4px;*/
+/*}*/
+
+/*.currentweather .humidity-padding {*/
+    /*padding-bottom: 6px;*/
+/*}*/

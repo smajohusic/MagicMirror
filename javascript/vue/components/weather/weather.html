@@ -2,7 +2,17 @@
     <div class="weathericon">
         <div :class="'wi ' + weatherType"></div>
     </div>
-    <div class="fa-home">
+    <div class="temp">
+        <span class="header">{{ fetchedLocatioName }}</span></br>
+        <span class="title">Sunrise:</span> <span :class="'wi ' + sunriseSunsetIcon"></span> {{ sunriseSunsetTime }}<br/>
+        <span class="title">Wind:</span> {{ windSpeed }} m/s, {{ windDirection }}, {{ windDeg }}º<br/>
+        <span class="title">Temp:</span> {{ temperature }}ºC
+    </div>
+
+
+
+
+<!--    <div class="fa-home">
         <div class="wind">
             <p>Windspeed: {{ windSpeed }}</p>
             <p>Winddirection {{ windDirection }}</p>
@@ -11,13 +21,14 @@
 
         <div class="temperature">
             <p>Temperatur {{ temperature }}</p>
-            <p>Sunrise/set icon {{ sunriseSunsetIcon }}</p>
             <p>Sunrise/set time: {{ sunriseSunsetTime }}</p>
             <p>Location: {{ fetchedLocatioName }}</p>
+
+            <div :class="'wi ' + sunriseSunsetIcon"></div>
         </div>
 
     </div>
     <div class="humidityIcon humidity-padding">
         <span>{{ humidity }}</span>
-    </div>
+    </div>-->
 </div>
