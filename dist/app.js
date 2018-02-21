@@ -18089,6 +18089,10 @@ module.exports = function spread(callback) {
 /* 148 */
 /***/ (function(module, exports) {
 
+var _electron;
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 var config = {
   // Server setup
   port: 8080,
@@ -18096,20 +18100,17 @@ var config = {
   address: 'localhost',
   ipWhitelist: ['127.0.0.1', '::ffff:127.0.0.1', '::1'],
 
-  electron: {
+  electron: (_electron = {
     options: {},
-    fullscreen: true,
-    // fullscreen: false,
-    autoHideMenuBar: true,
-    zoom: 1
-  },
+    fullscreen: true
+  }, _defineProperty(_electron, 'fullscreen', false), _defineProperty(_electron, 'zoom', 1), _electron),
 
   defaults: {
     language: 'en',
     timeFormat: 24,
     units: 'metric',
-    // debug: true,
-    debug: false
+    debug: true
+    // debug: false,
   },
 
   modules: {
@@ -18145,8 +18146,10 @@ var config = {
 
     traffic: {
       googleApiKey: 'AIzaSyCsXhNBQ6E0WIk6JLqgKE9AusH-zdJimc4',
-      lat: '',
-      lan: ''
+      zoom: 13,
+      updateInterval: 10 * 60000, // 10 minutes
+      lat: 59.2749729,
+      lng: 11.1495561
     }
   }
 };
@@ -18332,15 +18335,12 @@ module.exports = config;
 
   data: function data() {
     return {
-      timer: null
+      moduleConfig: this.$root.globalConfig.modules.traffic,
+      map: null
     };
   },
   mounted: function mounted() {
-    var self = this;
-
-    setTimeout(function () {
-      self.init();
-    }, 1000);
+    this.init();
   },
 
 
@@ -18348,11 +18348,23 @@ module.exports = config;
     init: function init() {
       var _this = this;
 
-      // todo: implement global config for some of these things, like lat and lng
+      if (this.$root.globalConfig.modules.traffic === 'undefined' || this.$root.globalConfig === null) {
+        console.error('Global config is missing or the module is missing in the configuration file.');
 
-      var map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 13,
-        center: { lat: 59.2749729, lng: 11.1495561 },
+        return;
+      }
+
+      // We wait 1 second before booting the module, because then we know that the google api is ready
+      setTimeout(function () {
+        _this.bootModule();
+      }, 1000);
+    },
+    bootModule: function bootModule() {
+      var _this2 = this;
+
+      this.map = new google.maps.Map(document.getElementById('map'), {
+        zoom: this.moduleConfig.zoom,
+        center: { lat: this.moduleConfig.lat, lng: this.moduleConfig.lng },
         disableDefaultUI: true,
         mapTypeControlOptions: {
           mapTypeIds: ['roadmap', 'satellite', 'hybrid', 'terrain']
@@ -18363,14 +18375,14 @@ module.exports = config;
 
       var trafficLayer = new google.maps.TrafficLayer();
 
-      trafficLayer.setMap(map);
+      trafficLayer.setMap(this.map);
 
-      // It seems like this i a common solution to update traffic info
+      // It seems like this is a common solution to update traffic info
       setInterval(function () {
-        map.setOptions({
-          styles: _this.generateMapStyles()
+        _this2.map.setOptions({
+          styles: _this2.generateMapStyles()
         });
-      }, 10 * 60000); // every 10 minutes, todo: change to use global config
+      }, this.moduleConfig.updateInterval);
     },
     generateMapStyles: function generateMapStyles() {
       return [{
@@ -18934,7 +18946,7 @@ module.exports = "<div class=\"jokes\" v-if=\"show\">\n    <p>{{ joke }}</p>\n</
 /* 155 */
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"traffic\">\n    <div id=\"map\"></div>\n</div>";
+module.exports = "<div id=\"traffic\" v-if=\"map !== undefined || map !== null\">\n    <div id=\"map\"></div>\n</div>";
 
 /***/ }),
 /* 156 */

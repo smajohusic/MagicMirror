@@ -5,25 +5,33 @@ export default {
 
   data() {
     return {
-      timer: null,
+      moduleConfig: this.$root.globalConfig.modules.traffic,
+      map: null,
     };
   },
 
   mounted() {
-    const self = this;
-
-    setTimeout(function () {
-      self.init();
-    }, 1000);
+    this.init();
   },
 
   methods: {
     init() {
-      // todo: implement global config for some of these things, like lat and lng
+      if (this.$root.globalConfig.modules.traffic === 'undefined' || this.$root.globalConfig === null) {
+        console.error('Global config is missing or the module is missing in the configuration file.');
 
-      const map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 13,
-        center: { lat: 59.2749729, lng: 11.1495561 },
+        return;
+      }
+
+      // We wait 1 second before booting the module, because then we know that the google api is ready
+      setTimeout(() => {
+        this.bootModule();
+      }, 1000);
+    },
+
+    bootModule() {
+      this.map = new google.maps.Map(document.getElementById('map'), {
+        zoom: this.moduleConfig.zoom,
+        center: { lat: this.moduleConfig.lat, lng: this.moduleConfig.lng },
         disableDefaultUI: true,
         mapTypeControlOptions: {
           mapTypeIds: ['roadmap', 'satellite', 'hybrid', 'terrain']
@@ -34,14 +42,14 @@ export default {
 
       const trafficLayer = new google.maps.TrafficLayer();
 
-      trafficLayer.setMap(map);
+      trafficLayer.setMap(this.map);
 
-      // It seems like this i a common solution to update traffic info
+      // It seems like this is a common solution to update traffic info
       setInterval(() => {
-        map.setOptions({
+        this.map.setOptions({
           styles: this.generateMapStyles()
         });
-      }, 10 * 60000); // every 10 minutes, todo: change to use global config
+      }, this.moduleConfig.updateInterval);
     },
 
     generateMapStyles() {
