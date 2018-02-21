@@ -17,6 +17,7 @@ var config = {
     language: 'en',
     timeFormat: 24,
     units: 'metric',
+    // debug: true,
     debug: false,
   },
 
@@ -51,6 +52,12 @@ var config = {
     clock: {
       showDate: true,
       showSeconds: false,
+    },
+
+    traffic: {
+      googleApiKey: 'AIzaSyCsXhNBQ6E0WIk6JLqgKE9AusH-zdJimc4',
+      lat: '',
+      lan: '',
     },
   }
 };

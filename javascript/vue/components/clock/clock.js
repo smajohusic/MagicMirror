@@ -61,15 +61,15 @@ export default {
       this.clock.minutes = time.get('minutes');
       this.clock.seconds = time.get('seconds');
 
-      if (this.clock.hours > 0 && this.clock.hours <= 9) {
+      if (this.clock.hours >= 0 && this.clock.hours <= 9) {
         this.clock.hours = '0' + this.clock.hours;
       }
 
-      if (this.clock.minutes > 0 && this.clock.minutes <= 9) {
+      if (this.clock.minutes >= 0 && this.clock.minutes <= 9) {
         this.clock.minutes = '0' + this.clock.minutes;
       }
 
-      if (this.clock.seconds > 0 && this.clock.seconds <= 9) {
+      if (this.clock.seconds >= 0 && this.clock.seconds <= 9) {
         this.clock.seconds = '0' + this.clock.seconds;
       }
     },
@@ -79,7 +79,7 @@ export default {
       this.date.month = time.month() + 1; // Months are based on 0 - 11 in moment
       this.date.year = time.year();
 
-      if (this.date.month > 0 && this.date.month <= 9) {
+      if (this.date.month >= 0 && this.date.month <= 9) {
         this.date.month = '0' + this.date.month;
       }
     },

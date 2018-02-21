@@ -5,7 +5,7 @@
     <div class="temp">
         <span class="header">{{ fetchedLocatioName }}</span></br>
         <span class="title">Sun:</span> <span :class="'wi ' + sunriseSunsetIcon"></span> {{ sunriseSunsetTime }}<br/>
-        <span class="title">Wind:</span> {{ windSpeed }} m/s, {{ windDirection }}, {{ windDeg }}º<br/>
+        <span class="title">Wind:</span> {{ windSpeed }} m/s, {{ windDirection }} <template v-if="windDeg">, {{ windDeg }}º</template><br/>
         <span class="title">Temp:</span> {{ temperature }} ºC
     </div>
 </div>

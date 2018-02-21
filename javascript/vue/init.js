@@ -9,6 +9,7 @@ Vue.config.silent = false;
 import weatherComponent from './components/weather/weather';
 import jokes from './components/jokes/jokes';
 import clock from './components/clock/clock';
+import traffic from './components/traffic/traffic';
 
 const app = new Vue({
   el: '#app',
@@ -25,6 +26,7 @@ const app = new Vue({
     weather: weatherComponent,
     jokes: jokes,
     clock: clock,
+    traffic: traffic,
   },
 
   filters: {},

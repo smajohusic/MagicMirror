@@ -15,6 +15,7 @@
     <link rel="stylesheet" type="text/css" href="css/weather-icons.css">
     <link rel="stylesheet" type="text/css" href="css/weather.css">
     <link rel="stylesheet" type="text/css" href="css/clock_date.css">
+    <link rel="stylesheet" type="text/css" href="css/traffic.css">
 
 </head>
 <body>
@@ -43,8 +44,16 @@
     </div>
 </div>
 
-<div class="region middle center"><div class="container"></div></div>
-<div class="region lower third"><div class="container"><br/></div></div>
+<div class="region middle center">
+    <div class="container">
+        <div class="region left">
+            <traffic></traffic>
+        </div>
+    </div>
+</div>
+
+<div class="region lower third"><div class="container"></div></div>
+
 <div class="region bottom bar">
     <div class="container">
         <!-- Jokes -->
@@ -55,5 +64,6 @@
 </div>
 
 <script type="text/javascript" src="dist/app.js"></script>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDDU5cVxRugrkzjJIHBJud28UvXdYr_m8w"></script>
 </body>
 </html>
