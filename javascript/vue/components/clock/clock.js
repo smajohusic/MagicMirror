@@ -44,11 +44,18 @@ export default {
     },
 
     fetchTimeAndDate() {
-      const self = this;
+      setInterval(() => {
+        this.resolveClock(moment());
+        this.resolveDate(moment());
 
-      setInterval(function () {
-        self.resolveClock(moment());
-        self.resolveDate(moment());
+        /*
+        * This will emit an event with the clock and date every second to the parent
+        * By doing this we will be able to access it in the parent, and make it global for all components
+         */
+        this.$parent.$emit('clock:current-time-and-date', {
+          clock: this.clock,
+          date: this.date,
+        });
       }, 1000);
     },
 

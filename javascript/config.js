@@ -7,7 +7,7 @@ var config = {
 
   electron: {
     options: {},
-    fullscreen: true,
+    // fullscreen: true,
     fullscreen: false,
     // autoHideMenuBar: true,
     zoom: 1,
@@ -60,6 +60,17 @@ var config = {
       updateInterval: 10 * 60000, // 10 minutes
       lat: 59.2749729,
       lng: 11.1495561,
+      work: {
+        showTrafficAt: ['07:00:00,07:30:00'], // From - To
+        timeFormat: 'hh:mm:ss',
+        zoom: 12,
+        lat: 59.4428388,
+        lng: 10.6802022,
+        center: {
+          lat: 59.3757751,
+          lng: 10.7798839,
+        },
+      },
     },
   }
 };

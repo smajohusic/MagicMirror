@@ -6,9 +6,9 @@ import config from '../config.js';
 Vue.config.devtools = true;
 Vue.config.silent = false;
 
+import clock from './components/clock/clock';
 import weatherComponent from './components/weather/weather';
 import jokes from './components/jokes/jokes';
-import clock from './components/clock/clock';
 import traffic from './components/traffic/traffic';
 
 const app = new Vue({
@@ -17,23 +17,34 @@ const app = new Vue({
   data() {
     return {
       globalConfig: config,
+      globalClock: {},
     };
   },
 
   computed: {},
 
   components: {
+    clock: clock,
     weather: weatherComponent,
     jokes: jokes,
-    clock: clock,
     traffic: traffic,
   },
 
   filters: {},
 
   mounted() {
-    // Global mounted
+    this.registerChildEventListener();
   },
 
-  methods: {}
+  methods: {
+    registerChildEventListener() {
+      this.$root.$on('clock:current-time-and-date', (event) => {
+        this.setGlobalClockAndDate(event);
+      });
+    },
+
+    setGlobalClockAndDate(data) {
+      this.globalClock = data;
+    },
+  }
 });

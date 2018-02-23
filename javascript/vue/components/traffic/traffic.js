@@ -1,4 +1,5 @@
 import template from './traffic.html';
+import moment from 'moment';
 
 export default {
   template: template,
@@ -29,12 +30,80 @@ export default {
     },
 
     bootModule() {
+      moment.locale(this.$root.globalConfig.defaults.language);
+
+      // If work time has been set, check if its time to show it
+      if (this.moduleConfig.work.showTrafficAt.length && this.moduleConfig.work.showTrafficAt !== '') {
+        this.resolveMapToShow();
+      } else {
+        this.showCurrentLocation();
+      }
+    },
+
+    resolveMapToShow() {
+      this.moduleConfig.work.showTrafficAt.forEach(time => {
+        const currentTime = moment();
+        let showWorkDirectionFrom = moment(time.split(',')[0], this.moduleConfig.work.timeFormat);
+        let showWorkDirectionTo = moment(time.split(',')[1], this.moduleConfig.work.timeFormat);
+
+        if (currentTime.isBetween(showWorkDirectionFrom, showWorkDirectionTo)) {
+          this.showWorkDirection();
+        } else {
+          this.showCurrentLocation();
+        }
+      });
+
+      setInterval(() => {
+        this.resolveMapToShow();
+      }, this.moduleConfig.updateInterval);
+    },
+
+    showWorkDirection() {
+      const home = new google.maps.LatLng(this.moduleConfig.lat, this.moduleConfig.lng);
+      const work = new google.maps.LatLng(this.moduleConfig.work.lat, this.moduleConfig.work.lng);
+      const directionsService = new google.maps.DirectionsService();
+      const directionsDisplay = new google.maps.DirectionsRenderer({
+        polylineOptions: {
+          strokeColor: "hsla(0, 0%, 0%, 0.2)"
+        }
+      });
+      const trafficLayer = new google.maps.TrafficLayer();
+
+      // Init the map with correct locations and setting
+      this.map = new google.maps.Map(document.getElementById('map'), {
+        zoom: this.moduleConfig.work.zoom,
+        center: { lat: this.moduleConfig.work.center.lat, lng: this.moduleConfig.work.center.lng },
+        disableDefaultUI: true,
+        mapTypeControlOptions: {
+          mapTypeIds: google.maps.MapTypeId.ROADMAP,
+        },
+        styles: this.generateMapStyles(),
+        backgroundColor: 'hsla(0, 0%, 0%, 0)',
+      });
+
+      directionsDisplay.setMap(this.map);
+      directionsDisplay.setPanel(document.getElementById('directionsPanel'));
+
+      directionsService.route({
+        origin: home,
+        destination: work,
+        travelMode: "DRIVING"
+      }, function (result, status) {
+        if (status == google.maps.DirectionsStatus.OK) {
+          directionsDisplay.setDirections(result);
+        }
+      });
+
+      trafficLayer.setMap(this.map);
+    },
+
+    showCurrentLocation() {
       this.map = new google.maps.Map(document.getElementById('map'), {
         zoom: this.moduleConfig.zoom,
         center: { lat: this.moduleConfig.lat, lng: this.moduleConfig.lng },
         disableDefaultUI: true,
         mapTypeControlOptions: {
-          mapTypeIds: ['roadmap', 'satellite', 'hybrid', 'terrain']
+          mapTypeIds: google.maps.MapTypeId.ROADMAP,
         },
         styles: this.generateMapStyles(),
         backgroundColor: 'hsla(0, 0%, 0%, 0)',
