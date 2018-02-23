@@ -8,8 +8,8 @@ use the same structure as the rest of the components**.
 #### Component wishes
 - Calendar for today (google, apple)
 - Traffic.js
-    - Implement show road to work at a specific time
-    - Also plot the traffic
+    - Implement show road to work at a specific time **Fixed**
+    - Also plot the traffic **Fixed**
 
 ### Awesome component idees
 https://github.com/vicmora/MMM-GoogleMapsTraffic
