@@ -54,6 +54,9 @@ export default {
       });
 
       setInterval(() => {
+        // Destroy the map before building it again. Maybe it will help with he google maps memory leak
+        this.map = null;
+
         this.resolveMapToShow();
       }, this.moduleConfig.updateInterval);
     },

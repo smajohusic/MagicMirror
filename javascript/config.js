@@ -7,8 +7,8 @@ var config = {
 
   electron: {
     options: {},
-    fullscreen: true,
-    // fullscreen: false,
+    // fullscreen: true,
+    fullscreen: false,
     autoHideMenuBar: true,
     zoom: 1,
   },
@@ -17,8 +17,8 @@ var config = {
     language: 'en',
     timeFormat: 24,
     units: 'metric',
-    // debug: true,
-    debug: false,
+    debug: true,
+    // debug: false,
   },
 
   modules: {
@@ -57,7 +57,7 @@ var config = {
     traffic: {
       googleApiKey: 'AIzaSyCsXhNBQ6E0WIk6JLqgKE9AusH-zdJimc4',
       zoom: 13,
-      updateInterval: 10 * 60000, // 10 minutes
+      updateInterval: 15 * 60000, // 15 minutes
       lat: 59.2749729,
       lng: 11.1495561,
       work: {

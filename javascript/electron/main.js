@@ -1,8 +1,6 @@
 const electron = require('electron');
 const init = require(__dirname + '/../init.js');
 const config = require(__dirname + '/../config.js');
-const path = require('path');
-const url = require('url');
 
 const app = electron.app;
 const BrowserWindow = electron.BrowserWindow;
@@ -35,6 +33,11 @@ function createAppWindow(config) {
   if (config.defaults.debug) {
     mainWindow.webContents.openDevTools();
   }
+
+  // Reload the electron window every 2 hours
+  setInterval(() => {
+    mainWindow.reload();
+  }, 2000 * 60 * 60); // 2 hours
 };
 
 // This method will be called when Electron has finished
@@ -63,7 +66,6 @@ app.on("activate", function () {
  * init.stop() is called by process.on("SIGINT"... in `app.js`
  */
 app.on("before-quit", (event) => {
-  console.log("Shutting down server...");
   event.preventDefault();
   setTimeout(() => {
     process.exit(0);

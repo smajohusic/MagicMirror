@@ -6,10 +6,12 @@ All components are created with Vue. If you want to build a component for this r
 use the same structure as the rest of the components**.
 
 #### Component wishes
+- Still missing 3 modules to complete the personal build
 - Calendar for today (google, apple)
-- Traffic.js
-    - Implement show road to work at a specific time **Fixed**
-    - Also plot the traffic **Fixed**
+   
+Currently also waiting for microphone, speaker and motion sensor.
+
+Need to write documentation for repo and usage.
 
 ### Awesome component idees
 https://github.com/vicmora/MMM-GoogleMapsTraffic
