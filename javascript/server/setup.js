@@ -39,7 +39,7 @@ var Server = function (config, callback) {
 
   // todo: is this one needed?
   app.get("/", function(request, response) {
-    const html = fs.readFileSync(path.resolve(__dirname + '/../../index.html'), {encoding: "utf8"});
+    // const html = fs.readFileSync(path.resolve(__dirname + '/../../index.html'), {encoding: "utf8"});
     //
     // response.send(html);
     response.sendFile(path.resolve(__dirname + '/../../index.html'));
