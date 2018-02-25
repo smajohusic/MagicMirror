@@ -7,9 +7,9 @@ var config = {
 
   electron: {
     options: {},
-    // fullscreen: true,
-    fullscreen: false,
-    // autoHideMenuBar: true,
+    fullscreen: true,
+    // fullscreen: false,
+    autoHideMenuBar: true,
     zoom: 1,
   },
 
@@ -17,8 +17,8 @@ var config = {
     language: 'en',
     timeFormat: 24,
     units: 'metric',
-    debug: true,
-    // debug: false,
+    // debug: true,
+    debug: false,
   },
 
   modules: {
