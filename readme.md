@@ -32,6 +32,36 @@ https://github.com/RedNax67/MMM-IPCam
 
 https://github.com/alexyak/motiondetector
 
+#### For python
+- to run the requirements file: ```pip3 install -r requirements.txt```
+
+#### Node - installing on Raspberry Pi 3
+https://tutorials-raspberrypi.com/setup-raspberry-pi-node-js-webserver-control-gpios/
+
+To make electron work on raspberry pi
+```
+sudo apt-get install libxtst6
+```
+```
+sudo apt-get install libxss1
+```
+```
+sudo apt-get install libgconf-2-4
+```
+```
+sudo apt-get install libnss3
+```
+
+```
+libgtk2.0-0 libnotify-bin libgconf-2-4 libnss3
+```
+
+Also install electron globally
+
+```
+npm install electron -g
+```
+
 #### Thanks to:
 
 - Python / Backend / Idea
