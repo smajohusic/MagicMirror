@@ -1,1 +1,18 @@
-<div class="calendar"></div>
+<div class="calendar" v-if="show">
+
+    <p class="calendarTt">Kalender</p>
+    <div class="items-container">
+        <div class="item" v-for="event in calendarEvents">
+            <p class="eventName">{{ event.summary }} - {{ event.start.dateTime }}</p>
+            <p class="creator">{{ event.creator.email }}</p>
+
+            <div class="attendees" v-if="event.attendees !== undefined">
+                <p v-for="attendee in event.attendees">
+                    {{ attendee.displayName }}
+                    {{ attendee.responseStatus }}
+                </p>
+            </div>
+        </div>
+    </div>
+
+</div>

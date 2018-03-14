@@ -26,7 +26,7 @@ var config = {
       location: 'Sarpsborg',
       locationID: '3140084',
       appid: '5a92635a509d72a1c5a72fd50af77e56',
-      updateInterval: 10 * 60 * 1000, // every 10 minutes
+      updateInterval: 10 * 60000, // every 10 minutes
       units: 'metric',
       timeFormat: 24,
       lang: 'en',
@@ -46,7 +46,7 @@ var config = {
       apiEnpoints: [
         'http://api.icndb.com/jokes/random'
       ],
-      duration: 10 * 60 * 1000, // 10 minutes
+      duration: 10 * 60000, // 10 minutes
     },
 
     clock: {
@@ -82,8 +82,7 @@ var config = {
         queryParams: {
           singleEvents: true,
           orderBy: 'starttime',
-          timeMin: '',
-          timeMax: '',
+          maxResults: 3,
         },
       },
     },

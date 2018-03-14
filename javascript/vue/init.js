@@ -10,6 +10,7 @@ import clock from './components/clock/clock';
 import weatherComponent from './components/weather/weather';
 import jokes from './components/jokes/jokes';
 import traffic from './components/traffic/traffic';
+import calendar from './components/calendar/calendar';
 
 const app = new Vue({
   el: '#app',
@@ -28,6 +29,7 @@ const app = new Vue({
     weather: weatherComponent,
     jokes: jokes,
     traffic: traffic,
+    calendar: calendar,
   },
 
   filters: {},

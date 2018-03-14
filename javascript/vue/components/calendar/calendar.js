@@ -8,6 +8,8 @@ export default {
     return {
       config: this.$root.globalConfig.modules.calendar,
       show: false,
+      timer: null,
+      calendarEvents: [],
     };
   },
 
@@ -31,14 +33,21 @@ export default {
 
       axios.get(apiUrl)
         .then(response => {
-          console.log("api response data", response);
+          this.show = true;
+
+          // Google returns an array witch object items
+          response.data.items.forEach(item => {
+            this.calendarEvents.push(item);
+          });
         })
         .catch(error => {
-          console.log("api error data", error);
+          this.show = true;
+          console.log('Error occurred while getting calendar info', error);
         });
 
+      console.log(this.calendarEvents);
 
-      // this.rescheduleTimer();
+      this.rescheduleTimer();
     },
 
     resolveApiCalendarUrl() {
@@ -50,21 +59,35 @@ export default {
 
       // This will return all the info you need to make the api call
       const calendarSettings = this.config[this.config.calendarType];
-      const apiUrl = calendarSettings.url;
-      const params = calendarSettings.params;
+      const params = calendarSettings.queryParams;
+      let apiUrl = calendarSettings.url;
 
-      if (params !== 'undefined' || params !== null ) {
+      if (params !== 'undefined' || params !== null) {
+        let buildParams = '';
 
         // Set all the params that the user has defined in the config
         for (let key in params) {
           if (params.hasOwnProperty(key)) {
-            apiUrl = apiUrl.concat('&' + key + '=' + params[key]);
+            buildParams = buildParams + '&' + key + '=' + params[key];
           }
         }
+
+        if (this.config.calendarType === 'google') {
+          // Only show calendar events from today and to the future
+          buildParams = buildParams + '&timeMin=' + this.getCurrentTimestamp();
+        }
+
+        apiUrl += buildParams;
       }
 
-
       return apiUrl;
+    },
+
+    getCurrentTimestamp() {
+      const date = new Date;
+
+      return date.getUTCFullYear() + '-' + date.getUTCMonth() + '-' + date.getUTCDate() + 'T' + date.getUTCHours() +
+                ':' + date.getUTCMinutes() + ':' + date.getUTCSeconds() + 'Z';
     },
 
     rescheduleTimer() {
@@ -75,7 +98,7 @@ export default {
       // Reschedule the timer
       this.timer = setTimeout(function () {
         self.fetchCalendar();
-      }, this.config.duration);
+      }, this.config.updateInterval);
     },
   },
 }
