@@ -72,6 +72,21 @@ var config = {
         },
       },
     },
+
+    calendar: {
+      calendarType: 'google',
+      updateInterval: 60 * 60000, // Every hour
+
+      google: {
+        url: 'https://www.googleapis.com/calendar/v3/calendars/{calendarId}/events?key={api_key_from_google}',
+        queryParams: {
+          singleEvents: true,
+          orderBy: 'starttime',
+          timeMin: '',
+          timeMax: '',
+        },
+      },
+    },
   }
 };
 
