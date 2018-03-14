@@ -1,6 +1,9 @@
 ## Work-in-progress
 ###### 1.0.0.alpha
 
+### Take a look at this
+https://www.npmjs.com/package/python-shell
+
 ### Components
 All components are created with Vue. If you want to build a component for this repo,
 use the same structure as the rest of the components**.
