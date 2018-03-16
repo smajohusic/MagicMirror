@@ -45,8 +45,6 @@ export default {
           console.log('Error occurred while getting calendar info', error);
         });
 
-      console.log(this.calendarEvents);
-
       this.rescheduleTimer();
     },
 
@@ -88,6 +86,10 @@ export default {
 
       return date.getUTCFullYear() + '-' + date.getUTCMonth() + '-' + date.getUTCDate() + 'T' + date.getUTCHours() +
                 ':' + date.getUTCMinutes() + ':' + date.getUTCSeconds() + 'Z';
+    },
+
+    formatDateString(dateString) {
+      return dateString.slice(8, 10) + '/' + dateString.slice(5, 7) + '/' + dateString.slice(0, 4);
     },
 
     rescheduleTimer() {

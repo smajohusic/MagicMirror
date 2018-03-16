@@ -1,16 +1,22 @@
 <div class="calendar" v-if="show">
 
-    <p class="calendarTt">Kalender</p>
     <div class="items-container">
         <div class="item" v-for="event in calendarEvents">
-            <p class="eventName">{{ event.summary }} - {{ event.start.dateTime }}</p>
-            <p class="creator">{{ event.creator.email }}</p>
+            <div class="header">
+                <p class="eventName">{{ event.summary }}</p>
+
+                <div class="info">
+                    <span class="creator">{{ event.creator.email }}</span>
+                    <span class="date">{{ formatDateString(event.start.dateTime) }}</span>
+                </div>
+            </div>
 
             <div class="attendees" v-if="event.attendees !== undefined">
-                <p v-for="attendee in event.attendees">
+                <span v-for="attendee in event.attendees">
+                    <i v-if="attendee.responseStatus === 'accepted'" class="fa fa-check"></i>
+                    <i v-else class="fa fa-times"></i>
                     {{ attendee.displayName }}
-                    {{ attendee.responseStatus }}
-                </p>
+                </span>
             </div>
         </div>
     </div>

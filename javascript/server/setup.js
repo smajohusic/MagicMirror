@@ -25,7 +25,6 @@ var Server = function (config, callback) {
 
   app.use(helmet());
   // Load the css folder as a static resource
-  app.use("/css", express.static(__dirname + '/../../css'));
   app.use("/fonts/weather-icons", express.static(__dirname + '/../../fonts/weather-icons'));
   app.use("/dist", express.static(__dirname + '/../../dist'));
   app.use("/vue", express.static(__dirname + '/../vue'));

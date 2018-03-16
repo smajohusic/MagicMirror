@@ -1,0 +1,37 @@
+.calendar {
+    font-size: 1.20rem;
+
+    .items-container {
+
+        .item {
+            display: block;
+
+            .header {
+                .eventName {
+                    margin: 0;
+                    text-align: center;
+                    color: white;
+                }
+
+                .info {
+                    font-size: 0.75rem;
+                    color: #b3b3b3;
+
+                    .creator {
+                        float: left;
+                        margin-right: 10px;
+                    }
+
+                    .date {
+                        float: right;
+                        font-weight: bolder;
+                    }
+                }
+            }
+
+            .attendees {
+                font-size: 0.65rem;
+            }
+        }
+    }
+}

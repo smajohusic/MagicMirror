@@ -1,0 +1,17 @@
+/*
+ * Main / layout
+*/
+@import "layout/main";
+
+/*
+ * Components
+*/
+@import "components/clock_date";
+@import "components/traffic";
+@import "components/weather";
+@import "components/calendar";
+
+/*
+ * Vendor
+*/
+@import "vendor/weather-icons";
