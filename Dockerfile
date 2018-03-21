@@ -1,7 +1,7 @@
 FROM python:3.4-slim
 
-RUN apt-get -y update && \
-    apt-get install -y --fix-missing \
+RUN apt-get -y update
+RUN apt-get install -y --fix-missing \
     build-essential \
     cmake \
     gfortran \
@@ -13,7 +13,6 @@ RUN apt-get -y update && \
     libatlas-dev \
     libavcodec-dev \
     libavformat-dev \
-    libboost-all-dev \
     libgtk2.0-dev \
     libjpeg-dev \
     liblapack-dev \
@@ -25,19 +24,12 @@ RUN apt-get -y update && \
     zip \
     && apt-get clean && rm -rf /tmp/* /var/tmp/*
 
-
 # Install DLIB
 RUN cd ~ && \
     mkdir -p dlib && \
-    git clone -b 'v19.7' --single-branch https://github.com/davisking/dlib.git dlib/ && \
+    git clone -b 'v19.9' --single-branch https://github.com/davisking/dlib.git dlib/ && \
     cd  dlib/ && \
     python3 setup.py install --yes USE_AVX_INSTRUCTIONS
-
-
-# Install Flask
-#RUN cd ~ && \
-#   pip3 install flask flask-cors
-
 
 # Install Face-Recognition Python Library
 RUN cd ~ && \

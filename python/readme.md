@@ -5,6 +5,9 @@ Install docker by running this command
 
 A newer version of docker will create a issue when trying to run the build.sh script
 
+If you have trouble getting docker installed, try this:
+https://howchoo.com/g/nmrlzmq1ymn/how-to-install-docker-on-your-raspberry-pi
+
 ## Docker and face recognition
 See this link: has done what we need to do
 https://github.com/JanLoebel/face_recognition
@@ -28,3 +31,8 @@ pip3 install configparser
 
 For best speed and recognition, use 480x368 resolution on capturing and images to compare with.
 This repo  is testing with 480x360px images
+
+## Docker and testing (building images)
+```
+sudo docker build -t face-recognition .
+```
