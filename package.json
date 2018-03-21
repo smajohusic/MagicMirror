@@ -1,4 +1,9 @@
 {
+  "license": "MIT",
+  "author": {
+    "name": "Smajo Husic",
+    "email": "smajohusic@gmail.com"
+  },
   "private": true,
   "main": "es6-init.js",
   "scripts": {
