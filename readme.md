@@ -1,8 +1,7 @@
 ## Work-in-progress
 ###### 1.0.0.alpha
 
-<img src="docs/images/frame.jpg" alt="Logo" width=400px style="float: left; padding 5px;" />
-<img src="docs/images/setup_back.jpg" alt="Logo" width=400px style="float: right; padding 5px;" />
+<img src="docs/images/frame.jpg" alt="Logo" width=400px/>  <img src="docs/images/setup_back.jpg" alt="Logo" width=400px/>
 
 ### Components
 All components are created with Vue. If you want to build a component for this repo,
