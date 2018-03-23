@@ -2,6 +2,6 @@ face_recognition
 numpy
 picamera
 os
-scipy
+scipy>=1.13.2
 firebase-admin
 configparser
