@@ -44,8 +44,7 @@ COPY /python /root/python
 
 # Install requirements
 RUN cd /root/python && \
-    pip3 install -r requirements.txt && \
-    python3 setup.py install
+    pip3 install -r requirements.txt
 
 # Start the service
 CMD cd /root/python/face-recognition && \
