@@ -41,7 +41,7 @@ RUN cd ~ && \
 
 
 # Copy web service script
-COPY recognize.py /root/python/face-recognition/recognize.py
+COPY recognize.py /python/face-recognition/recognize.py
 
 
 # Start the web service
