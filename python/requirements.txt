@@ -1,5 +1,4 @@
 face_recognition
-opencv-python
 numpy
 picamera
 os
