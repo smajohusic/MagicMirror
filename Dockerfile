@@ -20,10 +20,6 @@ RUN apt-get install -y --fix-missing \
     pkg-config \
     python3-dev \
     python3-numpy \
-    picamera \
-    os \
-    firebase-admin \
-    configparser \
     software-properties-common \
     zip \
     && apt-get clean && rm -rf /tmp/* /var/tmp/*
@@ -43,11 +39,14 @@ RUN cd ~ && \
     pip3 install -r requirements.txt && \
     python3 setup.py install
 
-
 # Copy web service script
-COPY /python/face-recognition/recognize.py /root/recognize.py
+COPY /python /root
 
+# Install requirements
+RUN cd /root/python && \
+    pip3 install -r requirements.txt && \
+    python3 setup.py install
 
-# Start the web service
-CMD cd /root/ && \
+# Start the service
+CMD cd /root/face-recognition && \
     python3 recognize.py
