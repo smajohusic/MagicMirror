@@ -40,7 +40,7 @@ RUN cd ~ && \
     python3 setup.py install
 
 # Copy web service script
-COPY /python /root
+COPY /python /root/python
 
 # Install requirements
 RUN cd /root/python && \
