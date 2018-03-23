@@ -12,6 +12,10 @@ https://howchoo.com/g/nmrlzmq1ymn/how-to-install-docker-on-your-raspberry-pi
 See this link: has done what we need to do
 https://github.com/JanLoebel/face_recognition
 
+A point that ageitgey made:
+Instead of building the numpy array of the images every time, you could save the encodings to a file, then just load the file when you need it. See link:
+https://docs.scipy.org/doc/numpy/reference/generated/numpy.save.html
+
 
 https://gist.github.com/ageitgey/1ac8dbe8572f3f533df6269dab35df65
 (this example works, but requires  numpy-1.13.3)
