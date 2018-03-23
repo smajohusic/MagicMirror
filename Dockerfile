@@ -48,5 +48,5 @@ RUN cd /root/python && \
     python3 setup.py install
 
 # Start the service
-CMD cd /root/face-recognition && \
+CMD cd /root/python/face-recognition && \
     python3 recognize.py
