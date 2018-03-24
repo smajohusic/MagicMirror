@@ -1,4 +1,4 @@
-FROM python:3.6-slim-stretch
+FROM python:3.6.4-slim-stretch
 
 RUN apt-get -y update
 RUN apt-get install -y --fix-missing \
