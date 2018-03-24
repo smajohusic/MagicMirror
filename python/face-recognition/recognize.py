@@ -1,9 +1,19 @@
 import face_recognition
 import os
+import RPi.GPIO as GPIO
 import picamera
 import numpy as np
-
 from firebaseHelper import (init, updateCurrentUser)
+
+# Initilize and set the GPIO
+GPIO.setwarnings(False)
+GPIO.setmode(GPIO.BOARD)
+GPIO.setup(11, GPIO.IN) #Read output from PIR motion sensor
+GPIO.setup(3, GPIO.OUT) #LED output pin
+
+def recognizeForAmount():
+    minutes = getConfig('face-recognition', 'minutesToRecognize') #returns minutes
+    return minutes * 60
 
 def getImagePath():
     currentPath = os.path.dirname(__file__) # Absolute dir the script is in
@@ -13,14 +23,6 @@ def getImagePath():
 def resolveUserId(name):
     if name.find("#") != -1:
         return int(name.split("#")[1][:1])
-
-# Get a reference to the Raspberry Pi camera.
-camera = picamera.PiCamera()
-camera.resolution = (480, 368)
-camera.brightness = 75
-camera.contrast = 60
-camera.vflip = True
-output = np.empty((368, 480, 3), dtype=np.uint8)
 
 # Path to images folder
 imagePath = getImagePath();
@@ -50,42 +52,69 @@ for file in os.listdir('../face_recognition/tests/test_images/smajohusic/'):
     except Exception as e:
         pass
 
-# Initialize some variables
-face_locations = []
-face_encodings = []
-face_names = []
-process_this_frame = 0
-
 print("Ready for face recognition")
 
-while True:
-    # Grab a single frame of video from the RPi camera as a numpy array
-    camera.capture(output, format="rgb")
+def recognizeFace():
+    # Initialize some variables
+    face_locations = []
+    face_encodings = []
+    face_names = []
+    process_this_frame = 0
+    minutesToRecognize = recognizeForAmount()
 
-    # Only process every other frame of video to save time
-    if process_this_frame%5==0:
-        # Find all the faces and face encodings in the current frame of video
-        face_locations = face_recognition.face_locations(output)
-        face_encodings = face_recognition.face_encodings(output, face_locations)
+    # Get a reference to the Raspberry Pi camera.
+    camera = picamera.PiCamera()
+    camera.resolution = (480, 368)
+    camera.brightness = 75
+    camera.contrast = 60
+    camera.vflip = True
+    output = np.empty((368, 480, 3), dtype=np.uint8)
 
-        face_names = []
+    while time.sleep(minutesToRecognize):
+        # Grab a single frame of video from the RPi camera as a numpy array
+        camera.capture(output, format="rgb")
 
-        for face_encoding in face_encodings:
-            match = face_recognition.compare_faces(known_face_encoding, face_encoding)
-            matches=np.where(match)[0] #Checking which image is matched
+        # Only process every other frame of video to save time
+        if process_this_frame%5==0:
+            # Find all the faces and face encodings in the current frame of video
+            face_locations = face_recognition.face_locations(output)
+            face_encodings = face_recognition.face_encodings(output, face_locations)
 
-            if len(matches)>0:
-                name = str(known_person[matches[0]])
-                face_names.append(name)
-                userId = resolveUserId(name)
-            else:
-                face_names.append("Unknown")
+            face_names = []
 
-    process_this_frame =  process_this_frame+1
-    if process_this_frame>5:
-        process_this_frame=0
+            for face_encoding in face_encodings:
+                match = face_recognition.compare_faces(known_face_encoding, face_encoding)
+                matches=np.where(match)[0] #Checking which image is matched
+
+                if len(matches)>0:
+                    name = str(known_person[matches[0]])
+                    face_names.append(name)
+                    userId = resolveUserId(name)
+                else:
+                    face_names.append("Unknown")
+
+        process_this_frame =  process_this_frame+1
+        if process_this_frame>5:
+            process_this_frame=0
+
+    # Destroy the camera
+    camera.close()
+
+    # After the amount of time has passed, start detecting motion again
+    detectMotion()
+
+def detectMotion():
+    detect = True
+
+    while detect:
+        input = GPIO.input(11)
+
+        if input == 1:
+            # Stop detecting motion
+            detect = False
+            # Start recognizing faces
+            recognizeFace()
 
 
-    # Hit 'q' on the keyboard to quit!
-    if 0xFF == ord('q'):
-        break
+# Start detecting motion
+detectMotion()

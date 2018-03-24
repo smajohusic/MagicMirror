@@ -1,2 +1,5 @@
 [firebase]
 databaseUrl = 
+
+[face-recognition]
+minutesToRecognize = 2

@@ -40,3 +40,6 @@ This repo  is testing with 480x360px images
 ```
 sudo docker build -t face-recognition .
 ```
+
+## Motion sensor and connection
+<img src="docs/images/r-pi-motion.jpg" alt="Logo" width=400px/>
