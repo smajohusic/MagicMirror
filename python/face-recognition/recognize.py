@@ -1,6 +1,6 @@
 import face_recognition
 import os
-import picamera from PiCamera
+import picamera
 import numpy as np
 
 from firebaseHelper import (init, updateCurrentUser)

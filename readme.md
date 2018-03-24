@@ -64,6 +64,11 @@ Also install electron globally
 npm install electron -g
 ```
 
+#### Build docker container
+```
+sudo docker build . -t face-recognition
+```
+
 #### Thanks to:
 
 - Python / Backend / Idea
