@@ -77,6 +77,8 @@ def recognizeFace():
     camera.vflip = True
     output = np.empty((368, 480, 3), dtype=np.uint8)
 
+    camera.start_preview()
+
     while time.sleep(minutesToRecognize):
         # Grab a single frame of video from the RPi camera as a numpy array
         camera.capture(output, format="rgb")
@@ -104,8 +106,12 @@ def recognizeFace():
         if process_this_frame>5:
             process_this_frame=0
 
+    camera.stop_preview()
+
     # Destroy the camera
     camera.close()
+
+    print("Done recognizing faces")
 
     # After the amount of time has passed, start detecting motion again
     detectMotion()
@@ -117,7 +123,7 @@ def detectMotion():
         input = GPIO.input(11)
 
         if input == 1:
-            print("Something moved")
+            print("Something moved, start recognizing face")
             # Stop detecting motion
             detect = False
             # Start recognizing faces
