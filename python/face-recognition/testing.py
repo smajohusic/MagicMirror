@@ -11,7 +11,7 @@ def getConfig(section, name):
     return config.get(section, name)
 
 
-configVal = recognizeForAmount('')
+configVal = recognizeForAmount()
 
 print("%s", configVal)
 
