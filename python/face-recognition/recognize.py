@@ -18,8 +18,7 @@ def recognizeForAmount():
 def getImagePath():
     currentPath = os.path.dirname(__file__) # Absolute dir the script is in
     filepath = "../images/" # The path where the pictures are uploaded
-    print("%s" % currentPath)
-    print("%s" % filepath)
+    print("filepath: %s and currentPath: %s" % (filepath, currentPath))
     return os.listdir(os.path.join(currentPath, filepath));
 
 def resolveUserId(name):
