@@ -15,18 +15,19 @@ def recognizeForAmount():
     minutes = getConfig('face-recognition', 'minutesToRecognize') #returns minutes
     return minutes * 60
 
-def getImagePath():
-    currentPath = os.path.dirname(__file__) # Absolute dir the script is in
-    filepath = "/../images/" # The path where the pictures are uploaded
-    fileList = os.listdir(os.path.join(currentPath, filepath))
-    return fileList;
+def getImages():
+    currentPath = os.path.dirname(os.path.abspath(__file__)); # Absolute dir the script is in
+    filepath = "../images/"; # The path where the pictures are uploaded
+    directory = os.listdir(os.path.join(currentPath, filepath));
+    images = [ fi for fi in directory if fi.endswith(('.JPG', '.jpg', 'jpeg', '.JPEG')) ];
+    return images;
 
 def resolveUserId(name):
     if name.find("#") != -1:
         return int(name.split("#")[1][:1])
 
-# Path to images folder
-imagePath = getImagePath();
+# Directory to images
+images = getImages();
 
 #For name to store
 known_person = []
@@ -42,12 +43,10 @@ known_face_encoding = []
 
 print("Getting all images")
 
-for file in os.listdir('../face_recognition/tests/test_images/smajohusic/'):
+for file in images:
     try:
-        #Extracting person name from the image filename eg:Abhilash.jpg
-
         known_person.append(file.replace(".jpg", ""))
-        file=os.path.join('../face_recognition/tests/test_images/smajohusic/', file)
+        file=os.path.join('../images/', file)
         known_image = face_recognition.load_image_file(file)
         known_face_encoding.append(face_recognition.face_encodings(known_image)[0])
     except Exception as e:
