@@ -18,8 +18,7 @@ def detectMotion():
             print("Something moved, start recognizing face")
             # Stop detecting motion
             detect = False
-            # Start recognizing faces
-            #recognizeFace()
+            detectMotion()
 
 
 # Start detecting motion
