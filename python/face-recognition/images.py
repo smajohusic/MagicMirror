@@ -1,6 +1,6 @@
 import os
 
-print("%s", os.path.dirname())
+print("%s , %s", % (os.path.dirname("."), __file__))
 
 currentPath = os.path.dirname(__file__) # Absolute dir the script is in
 filepath = "../images/" # The path where the pictures are uploaded
