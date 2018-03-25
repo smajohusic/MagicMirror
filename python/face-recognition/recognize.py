@@ -27,7 +27,7 @@ def resolveUserId(name):
         return int(name.split("#")[1][:1])
 
 # Directory to images
-images = getImages();
+images = getImages()
 
 #For name to store
 known_person = []
