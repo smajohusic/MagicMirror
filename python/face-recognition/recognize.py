@@ -110,6 +110,7 @@ def detectMotion():
         input = GPIO.input(11)
 
         if input == 1:
+            print("Something moved")
             # Stop detecting motion
             detect = False
             # Start recognizing faces
