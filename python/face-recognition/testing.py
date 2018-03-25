@@ -2,7 +2,7 @@ import os
 import configparser
 
 def recognizeForAmount():
-    minutes = getConfig('face-recognition', 'minutesToRecognize') #returns minutes
+    minutes = getConfig('recognition', 'minutesToRecognize') #returns minutes
     return minutes * 60
 
 def getConfig(section, name):
