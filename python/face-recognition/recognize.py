@@ -16,10 +16,10 @@ def recognizeForAmount():
     return minutes * 60
 
 def getImagePath():
-    currentPath = os.path.dirname(os.path.abspath(__file__)) # Absolute dir the script is in
+    currentPath = os.path.dirname(__file__) # Absolute dir the script is in
     filepath = "/../images/" # The path where the pictures are uploaded
-    print("filepath: %s and currentPath: %s" % (filepath, currentPath))
-    return os.listdir(os.path.join(currentPath, filepath));
+    fileList = os.listdir(os.path.join(currentPath, filepath))
+    return fileList;
 
 def resolveUserId(name):
     if name.find("#") != -1:
