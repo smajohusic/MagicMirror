@@ -7,7 +7,7 @@ def recognizeForAmount():
 
 def getConfig(section, name):
     config = configparser.ConfigParser()
-    config.read('config/config.txt')
+    config.read('../config/config.txt')
     return config.get(section, name)
 
 
