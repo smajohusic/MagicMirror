@@ -3,7 +3,7 @@ import configparser
 
 def recognizeForAmount():
     minutes = getConfig('recognition', 'minutesToRecognize') #returns minutes
-    return minutes * 60000
+    return int(minutes) * 60000
 
 def getConfig(section, name):
     config = configparser.ConfigParser()

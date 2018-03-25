@@ -14,7 +14,7 @@ GPIO.setup(3, GPIO.OUT) #LED output pin
 
 def recognizeForAmount():
     minutes = getConfig('recognition', 'minutesToRecognize') #returns minutes
-    return minutes * 60000 # convert to ms
+    return int(minutes) * 60000 # convert to ms
 
 def getConfig(section, name):
     config = configparser.ConfigParser()
