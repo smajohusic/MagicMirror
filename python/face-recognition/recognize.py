@@ -13,12 +13,12 @@ GPIO.setup(11, GPIO.IN) #Read output from PIR motion sensor
 GPIO.setup(3, GPIO.OUT) #LED output pin
 
 def recognizeForAmount():
-    minutes = getConfig('face-recognition', 'minutesToRecognize') #returns minutes
-    return minutes * 60
+    minutes = getConfig('recognition', 'minutesToRecognize') #returns minutes
+    return minutes * 60000 # convert to ms
 
 def getConfig(section, name):
     config = configparser.ConfigParser()
-    config.read('config/config.txt')
+    config.read('../config/config.txt')
     return config.get(section, name)
 
 def getImages():
