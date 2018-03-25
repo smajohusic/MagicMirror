@@ -15,6 +15,11 @@ def recognizeForAmount():
     minutes = getConfig('face-recognition', 'minutesToRecognize') #returns minutes
     return minutes * 60
 
+def getConfig(section, name):
+    config = configparser.ConfigParser()
+    config.read('config/config.txt')
+    return config.get(section, name)
+
 def getImages():
     currentPath = os.path.dirname(os.path.abspath(__file__)) # Absolute dir the script is in
     filepath = "../images/" # The path where the pictures are uploaded
