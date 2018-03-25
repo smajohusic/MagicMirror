@@ -1,18 +1,21 @@
 import os
 import configparser
+import RPi.GPIO as GPIO
 
-def recognizeForAmount():
-    minutes = getConfig('recognition', 'minutesToRecognize') #returns minutes
-    return int(minutes) * 60000
+def detectMotion():
+    detect = True
 
-def getConfig(section, name):
-    config = configparser.ConfigParser()
-    config.read('../config/config.txt')
-    return config.get(section, name)
+    while detect:
+        input = GPIO.input(11)
+
+        if input == 1:
+            print("Something moved, start recognizing face")
+            # Stop detecting motion
+            detect = False
+            # Start recognizing faces
+            #recognizeFace()
 
 
-configVal = recognizeForAmount()
-
-print("%d", configVal)
-
+# Start detecting motion
+detectMotion()
 
