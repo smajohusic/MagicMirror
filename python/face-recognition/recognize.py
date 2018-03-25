@@ -16,11 +16,11 @@ def recognizeForAmount():
     return minutes * 60
 
 def getImages():
-    currentPath = os.path.dirname(os.path.abspath(__file__)); # Absolute dir the script is in
-    filepath = "../images/"; # The path where the pictures are uploaded
-    directory = os.listdir(os.path.join(currentPath, filepath));
-    images = [ fi for fi in directory if fi.endswith(('.JPG', '.jpg', 'jpeg', '.JPEG')) ];
-    return images;
+    currentPath = os.path.dirname(os.path.abspath(__file__)) # Absolute dir the script is in
+    filepath = "../images/" # The path where the pictures are uploaded
+    directory = os.listdir(os.path.join(currentPath, filepath))
+    images = [ fi for fi in directory if fi.endswith(('.JPG', '.jpg', 'jpeg', '.JPEG')) ]
+    return images
 
 def resolveUserId(name):
     if name.find("#") != -1:
