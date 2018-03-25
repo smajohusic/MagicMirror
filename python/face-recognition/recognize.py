@@ -122,6 +122,8 @@ def detectMotion():
     while detect:
         input = GPIO.input(11)
 
+        print("%d", input)
+
         if input == 1:
             print("Something moved, start recognizing face")
             # Stop detecting motion
