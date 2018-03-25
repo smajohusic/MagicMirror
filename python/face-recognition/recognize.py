@@ -1,5 +1,6 @@
 import face_recognition
 import os
+import configparser
 import RPi.GPIO as GPIO
 import picamera
 import numpy as np
