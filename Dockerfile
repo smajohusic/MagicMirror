@@ -22,6 +22,9 @@ RUN apt-get install -y --fix-missing \
     python3-numpy \
     python-rpi.gpio \
     python3-rpi.gpio \
+    bluetooth bluez \
+    libbluetooth-dev \
+    libudev-dev \
     software-properties-common \
     zip \
     && apt-get clean && rm -rf /tmp/* /var/tmp/*
