@@ -41,5 +41,28 @@ This repo  is testing with 480x360px images
 sudo docker build -t face-recognition .
 ```
 
+## Simple motion sensor example
+Optimize false positives
+
+```python
+import time
+last_motion = 0
+while True:
+    try:
+        if pir.motion_detected:
+            last_motion = time.time()
+
+        if time.time() - last_motion <= 7:
+            GPIO.output(3, GPIO.LOW)
+            print("On")
+        else:
+            GPIO.output(3, GPIO.HIGH)
+            print("Off")
+
+        time.sleep(1)
+    except KeyboardInterrupt:
+        break
+```
+
 ## Motion sensor and connection
-<img src="docs/images/r-pi-motion.jpg" alt="Logo" width=400px/>
+<img src="../docs/images/r-pi-motion.jpg" alt="Logo" width=400px/> <img src="../docs/images/pir-sensor.jpg" alt="Logo" width=400px/>
