@@ -86,6 +86,10 @@ var config = {
         },
       },
     },
+
+    bluetooth: {
+      iphone: 'e00e9eb160ef4ade820589526365ed7b',
+    },
   }
 };
 

@@ -96,6 +96,10 @@ def recognizeFace():
                 matches=np.where(match)[0] #Checking which image is matched
 
                 if len(matches)>0:
+                    camera.stop_preview()
+                    # Destroy the camera
+                    camera.close()
+
                     name = str(known_person[matches[0]])
                     face_names.append(name)
                     userId = resolveUserId(name)
