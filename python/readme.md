@@ -1,3 +1,5 @@
+## If camera is enabled, allocate 128mb to the GPU
+
 ## Docker
 Install docker by running this command
 

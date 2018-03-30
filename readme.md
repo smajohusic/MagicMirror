@@ -1,84 +1,62 @@
-## Work-in-progress
-###### 1.0.0.alpha
+# Name not yet found
+
+An overview of installing and configurating the application.
+
+Built with Node, Python, Vue and Html/Css
 
 <img src="docs/images/frame.jpg" alt="Logo" width=400px/>  <img src="docs/images/setup_back.jpg" alt="Logo" width=400px/>
 
-### Components
-All components are created with Vue. If you want to build a component for this repo,
-use the same structure as the rest of the components**.
+## Sections
 
-#### Component wishes
-- Still missing 3 modules to complete the personal build
-- Calendar for today (google, apple)
-   
-Currently also waiting for microphone, speaker and motion sensor.
+- [General - installation of OS](#general) (required)
+    - Downloading OS
+    - Installing GUI/packages
+    - Git - clone repo
+- [Javascript - Node](/docs/javascript_node.md) (required)
+- [Python](/docs/php.md) (optional)
+    - Docker?
 
-Need to write documentation for repo and usage.
+## General
 
-### Awesome component idees
-https://github.com/vicmora/MMM-GoogleMapsTraffic
+#### The basics of Raspberry Pi
+Start by going to [raspberrypi](https://www.raspberrypi.org/downloads/raspbian) download section.
+Download "Raspbian Stretch With Desktop" (electron needs a GUI, or it will not work).
 
-https://github.com/basti0001/MMM-iHaveBeenThere
+If you download the Lite version (or any else for that matter), make sure you install a GUI and
+required packages as described in this repo.
 
-https://github.com/eouia/MMM-Assistant
+Use a tool to flash the image over to the SD. I recommend using [Etcher](https://etcher.io/).
 
-https://github.com/alexyak/camera
+To enable SSH, create a file (with no extension) and name it ```ssh``` in the root folder of the SD card that you just flashed the image to.
+ 
+#### Installing, updating and enabling packages/services
+When the OS is working and you have started your Raspberry:
 
-https://github.com/sakirtemel/MMM-alexa
-
-https://github.com/dolanmiu/MMM-awesome-alexa
-
-https://github.com/gauravsacc/MMM-GoogleAssistant
-
-https://github.com/RedNax67/MMM-IPCam
-
-https://github.com/alexyak/motiondetector
-
-#### For python
-- to run the requirements file: ```pip3 install -r requirements.txt```
-
-#### Node - installing on Raspberry Pi 3
-https://tutorials-raspberrypi.com/setup-raspberry-pi-node-js-webserver-control-gpios/
-
-To make electron work on raspberry pi
-```
-sudo apt-get install libxtst6
-```
-```
-sudo apt-get install libxss1
-```
-```
-sudo apt-get install libgconf-2-4
-```
-```
-sudo apt-get install libnss3
-```
+- Change default password, connect to Wifi and other settings
 
 ```
-libgtk2.0-0 libnotify-bin libgconf-2-4 libnss3
+sudo raspi-config
 ```
 
-Also install electron globally
+It does not hurt to also update the tool while you are changing some of the other settings.
+
+- Update existing software:
 
 ```
-npm install electron -g
+    sudo apt-get update
+    sudo apt-get full-upgrade
 ```
 
-#### Build docker container
+This will take a some time to download and install.
+
+- If Git is missing, install it by running
 ```
-sudo docker build . -t face-recognition
+    sudo apt-get install git
 ```
 
-#### Thanks to:
+You have now a Raspberry Pi that is ready to download the Git repo by running:
+```
+    git clone https://github.com/smajohusic/work-in-progress.git
+```
 
-- Python / Backend / Idea
-    - https://github.com/mrtnsn
-
-- Setup
-    - https://github.com/MichMich/MagicMirror
-        - Electron, express and server
-        - Weather component
-
-- Frontend
-    - https://github.com/sethne
-        - Weather component
+See [Javascript - Node](/docs/javascript_node.md) documentation to install required Node and npm packages.
