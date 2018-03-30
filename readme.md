@@ -6,6 +6,16 @@ Built with Node, Python, Vue and Html/Css
 
 <img src="docs/images/frame.jpg" alt="Logo" width=400px/>  <img src="docs/images/setup_back.jpg" alt="Logo" width=400px/>
 
+#### Thanks to:
+- https://github.com/MichMich/MagicMirror
+    - Electron, express and server
+    - Component ideas
+    
+- https://github.com/mrtnsn
+
+- Frontend
+    - https://github.com/sethne
+
 ## Sections
 
 - [General - installation of OS](#general) (required)
