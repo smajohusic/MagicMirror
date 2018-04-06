@@ -23,7 +23,11 @@ Built with Node, Python, Vue and Html/Css
     - Installing GUI/packages
     - Git - clone repo
 - [Javascript - Node](/docs/javascript_node.md) (required)
-- [Python](/docs/php.md) (optional)
+    - Node
+    - Electron
+    - NPM
+- [Configuration](/docs/config.md) (required)
+- [Python](/docs/python.md) (optional)
     - Docker?
 
 ## General
