@@ -9,7 +9,7 @@ var config = {
     options: {},
     // fullscreen: true,
     fullscreen: false,
-    autoHideMenuBar: true,
+    autoHideMenuBar: false,
     zoom: 1,
   },
 
@@ -27,19 +27,19 @@ var config = {
       locationID: '3140084',
       appid: '5a92635a509d72a1c5a72fd50af77e56',
       updateInterval: 10 * 60000, // every 10 minutes
-      units: 'metric',
-      timeFormat: 24,
-      lang: 'en',
+      units: 'metric', // todo: refactor to use the default units
+      timeFormat: 24, // todo: refactor to use the default timeFormat
+      lang: 'en', // todo: refactor to use the default lang
 
       apiVersion: "2.5",
       apiBase: "https://api.openweathermap.org/data/",
       weatherEndpoint: "weather",
 
-      appendLocationNameToHeader: true,
-      calendarClass: "calendar",
+      appendLocationNameToHeader: true, // todo: is this even used?
+      calendarClass: "calendar", // todo: is this even used?
 
-      onlyTemp: false,
-      roundTemp: false,
+      onlyTemp: false, // todo: is this even used?
+      roundTemp: false, // todo: is this even used?
     },
 
     jokes: {

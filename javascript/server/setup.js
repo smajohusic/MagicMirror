@@ -24,6 +24,7 @@ var Server = function (config, callback) {
   });
 
   app.use(helmet());
+  //todo: this can be removed now since we build all assets and only include one file for js and one for css
   // Load the css folder as a static resource
   app.use("/fonts/weather-icons", express.static(__dirname + '/../../fonts/weather-icons'));
   app.use("/dist", express.static(__dirname + '/../../dist'));
