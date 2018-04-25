@@ -227,7 +227,151 @@ And now let's configurate the modules that are used:
 		<tr>
             <td><code>showSeconds</code></td>
             <td>
-                <p>Allow displaying the clock</p>
+                <p>Allow displaying seconds of the clock</p>
             </td>
         </tr>
 	</tbody>
+</table>
+
+#### Traffic
+<table width="100%">
+	<thead>
+		<tr>
+			<th>Option</th>
+			<th width="100%">Description</th>
+		</tr>
+	<thead>
+	<tbody>
+		<tr>
+			<td><code>googleApiKey</code></td>
+			<td>
+			    <p><strong>Required</strong></p>
+			    <p>Key to enable API calls to Google Maps. I suggest restricting the key for your home IP</p>
+			</td>
+		</tr>
+		<tr>
+            <td><code>zoom</code></td>
+            <td>
+                <p>How far should the map zoom in/out based on your latitude and langditude.</p>
+            </td>
+        </tr>
+        <tr>
+            <td><code>updateInterval</code></td>
+            <td>
+                <p>
+                    How often should we fetch new data from Google Traffick. <br>
+                    <strong>NB!</strong> The Google Maps API allows X request pr. day (free), so be carefull when changing this value as it may exceed it. <br>
+                    The dafault value is set to 15 * 60000 
+                </p>
+            </td>
+        </tr>
+        <tr>
+        <td><code>Latitude & Langitude</code></td>
+        <td>
+            <p>
+                Set the <strong>latitude</strong> and <strong>langitude</strong> based on where you want the map to show traffic. 
+            </p>
+        </td>
+    </tr>
+	</tbody>
+</table>
+
+##### Traffic - work
+To show the correct traffic flow when you are about to leave for work (or any other place for that matter),
+you will need  to define these settings.
+
+<table width="100%">
+	<thead>
+		<tr>
+			<th>Option</th>
+			<th width="100%">Description</th>
+		</tr>
+	<thead>
+	<tbody>
+		<tr>
+			<td><code>showTrafficAt</code></td>
+			<td>
+			    <p>Allows you to define muliple times for when to show the traffic flow to work</p>
+			</td>
+		</tr>
+		<tr>
+            <td><code>timeFormat</code></td>
+            <td>
+                <p>Define what time-format you are passing to showTrafficAt</p>
+                <p><strong>Default:</strong> 'hh:mm:ss'</p>
+            </td>
+        </tr>
+        <tr>
+            <td><code>Latitude & Langitude</code></td>
+            <td>
+                <p>
+                    Set the <strong>latitude</strong> and <strong>langitude</strong> based on where your work is. 
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td><code>center</code></td>
+            <td>
+                <p>Set the center point between your home and work address (lat and lng)</p>
+            </td>
+        </tr>
+	</tbody>
+</table>
+
+### Calendar
+Show future events from calendar
+
+<table width="100%">
+	<thead>
+		<tr>
+			<th>Option</th>
+			<th width="100%">Description</th>
+		</tr>
+	<thead>
+	<tbody>
+		<tr>
+			<td><code>calendarType</code></td>
+			<td>
+			    <p>Define which calendar service to use. Currently only supports gmail</p>
+			</td>
+		</tr>
+		<tr>
+            <td><code>updateInterval</code></td>
+            <td>
+                <p>How often should we fetch new data from the calendar.</p>
+            </td>
+        </tr>
+	</tbody>
+</table>
+
+Depending on what service you chose to fetch the events from, you then need to set the API parameters
+
+<table width="100%">
+	<thead>
+		<tr>
+			<th>Option</th>
+			<th width="100%">Description</th>
+		</tr>
+	<thead>
+	<tbody>
+		<tr>
+			<td><code>url</code></td>
+			<td>
+			    <p>Full url to API endpoint</p>
+			</td>
+		</tr>
+		<tr>
+            <td><code>queryParams</code></td>
+            <td>
+                <p>Additional parameters to send with the API request.</p>
+                <p>Example for gmail: <code>orderBy: 'starttime'</code>
+                </p>
+            </td>
+        </tr>
+	</tbody>
+</table>
+
+#### Bluetooth
+
+Currently only supports adding the Device ID for the given device you want to connect to.
+Still in development
