@@ -77,6 +77,7 @@ def recognizeFace():
     camera.vflip = True
     output = np.empty((368, 480, 3), dtype=np.uint8)
 
+    # Currently used for debugging
     camera.start_preview()
 
     while time.sleep(minutesToRecognize):
@@ -122,17 +123,24 @@ def recognizeFace():
 
 def detectMotion():
     detect = True
+    last_motion = 0
 
     while detect:
-        input = GPIO.input(11)
+        try:
+            input = GPIO.input(11)
 
-        if input == 1:
-            print("Something moved, start recognizing face")
-            # Stop detecting motion
-            detect = False
-            # Start recognizing faces
-            recognizeFace()
+            if input == 1:
+                last_motion = time.time()
 
+                if time.time() - last_motion <= 7:
+                    # Stop detecting motion
+                    detect = False
+                    # Start recognizing faces
+                    recognizeFace()
+
+                time.sleep(1)
+        except KeyboardInterrupt:
+            break
 
 # Start detecting motion
 detectMotion()
