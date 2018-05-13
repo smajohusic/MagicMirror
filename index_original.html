@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Alice</title>
+    <meta name="google" content="notranslate" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="mobile-web-app-capable" content="yes">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="dist/app.css">
+
+</head>
+<body>
+<div id="app">
+<div class="region fullscreen below"><div class="container"></div></div>
+<div class="region top bar">
+    <div class="container"></div>
+
+    <!-- Weather -->
+    <div class="region top left">
+        <div class="container">
+            <weather></weather>
+        </div>
+    </div>
+
+    <div class="region top center"><div class="container"></div></div>
+
+    <!-- Calendar -->
+    <div class="region top right">
+        <div class="container">
+            <calendar></calendar>
+        </div>
+    </div>
+</div>
+
+<div class="region upper third">
+    <div class="container">
+        <!-- Clock with date -->
+        <div class="region left">
+            <clock></clock>
+        </div>
+    </div>
+</div>
+
+<div class="region middle center">
+    <div class="container">
+        <div class="region left">
+            <traffic></traffic>
+        </div>
+    </div>
+</div>
+
+<div class="region lower third"><div class="container"></div></div>
+
+<div class="region bottom bar">
+    <div class="container">
+        <!-- Jokes -->
+        <jokes></jokes>
+    </div>
+</div>
+<div class="region fullscreen above"><div class="container"></div></div>
+</div>
+
+<script type="text/javascript" src="dist/app.js"></script>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDDU5cVxRugrkzjJIHBJud28UvXdYr_m8w"></script>
+</body>
+</html>

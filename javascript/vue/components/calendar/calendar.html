@@ -1,24 +1,31 @@
-<div class="calendar" v-if="show">
+<div class="calendar p-2" v-if="show">
+    <div class="title text-center bright">Kalender</div>
 
     <div class="items-container">
         <div class="item" v-for="event in calendarEvents">
             <div class="header">
-                <p class="eventName">{{ event.summary }}</p>
+                <div class="clearfix">
+                    <p class="eventName pull-left">{{ event.summary }}</p>
 
-                <div class="info">
-                    <span class="creator">{{ event.creator.email }}</span>
-                    <span class="date">{{ formatDateString(event.start.dateTime) }}</span>
+                    <div class="info dimmed d-inline-block">
+                        <span class="creator">
+                            /{{ event.creator.email }} @{{ formatDateString(event.start.dateTime) }}
+                        </span>
+                    </div>
                 </div>
-            </div>
 
-            <div class="attendees" v-if="event.attendees !== undefined">
-                <span v-for="attendee in event.attendees">
-                    <i v-if="attendee.responseStatus === 'accepted'" class="fa fa-check"></i>
-                    <i v-else class="fa fa-times"></i>
-                    {{ attendee.displayName }}
-                </span>
+                <!--<div class="attendees" v-if="event.attendees !== undefined">-->
+                    <!--<span class="d-inline-block" v-for="attendee in event.attendees">-->
+                        <!--<i v-if="attendee.responseStatus === 'accepted'" class="fa fa-check"></i>-->
+                        <!--<i v-else class="fa fa-times"></i>-->
+                        <!--{{ attendee.displayName }}-->
+                    <!--</span>-->
+                <!--</div>-->
             </div>
         </div>
     </div>
+</div>
 
+<div class="calendar no-events" v-else>
+    Du har ingen kalender-events
 </div>

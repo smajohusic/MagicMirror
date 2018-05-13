@@ -78,7 +78,7 @@ var config = {
       updateInterval: 60 * 60000, // Every hour
 
       google: {
-        url: 'https://www.googleapis.com/calendar/v3/calendars/{calendarId}/events?key={api_key_from_google}',
+        url: 'https://www.googleapis.com/calendar/v3/calendars/smajohusic@gmail.com/events?key=AIzaSyCCNM4zqTJPzRucqFdjrjvSoP-gF50ZcVY',
         queryParams: {
           singleEvents: true,
           orderBy: 'starttime',

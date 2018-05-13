@@ -1,35 +1,35 @@
 .calendar {
-    font-size: 1.20rem;
+    height: 100%;
+    width: 100%;
+
+    .title {
+        font-size: 30px;
+    }
 
     .items-container {
+        height: 100%;
 
         .item {
-            display: block;
+            width: 100%;
 
             .header {
                 .eventName {
-                    margin: 0;
-                    text-align: center;
+                    font-size: 18px;
                     color: white;
                 }
 
                 .info {
-                    font-size: 0.75rem;
-                    color: #b3b3b3;
+                    font-size: 12px;
+                    margin-left: 20px;
 
                     .creator {
-                        float: left;
                         margin-right: 10px;
-                    }
-
-                    .date {
-                        float: right;
-                        font-weight: bolder;
                     }
                 }
             }
 
             .attendees {
+                display: inline-block;
                 font-size: 0.65rem;
             }
         }

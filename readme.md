@@ -1,4 +1,4 @@
-# Name not yet found
+# MagicMirror
 
 An overview of installing and configurating the application.
 

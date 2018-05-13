@@ -11,7 +11,8 @@ let { mix } = require('laravel-mix');
  |
  */
 
-mix.js('javascript/vue/init.js', 'dist/app.js');
+mix.js('javascript/vue/init.js', 'dist/app.js')
+  .js('javascript/bootstrap.js', 'dist/bootstrap.js');
 
 mix.sass('scss/app.scss', 'dist/app.css', { sourceComments: false })
   .options({processCssUrls: false });

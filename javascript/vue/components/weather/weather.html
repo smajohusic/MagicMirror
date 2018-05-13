@@ -1,8 +1,9 @@
-<div class="currentweather" v-if="visible">
-    <div class="weathericon">
+<div class="currentweather p-2" v-if="visible">
+    <div class="weathericon pull-left">
         <div :class="'wi ' + weatherType"></div>
     </div>
-    <div class="temp">
+
+    <div class="temp pull-right">
         <span class="header">{{ fetchedLocatioName }}</span></br>
         <span class="title">Sun:</span> <span :class="'wi ' + sunriseSunsetIcon"></span> {{ sunriseSunsetTime }}<br/>
         <span class="title">Wind:</span> {{ windSpeed }} m/s, {{ windDirection }} <template v-if="windDeg">, {{ windDeg }}º</template><br/>

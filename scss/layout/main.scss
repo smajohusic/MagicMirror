@@ -9,17 +9,19 @@ html {
 }
 
 body {
-    margin: 60px;
-    position: absolute;
-    height: calc(100% - 120px);
-    width: calc(100% - 120px);
+    padding: 20px;
     background: #000;
     color: #aaa;
     font-family: "Roboto Condensed", sans-serif;
     font-weight: 400;
-    font-size: 2em;
+    font-size: 1.5em;
     line-height: 1.5em;
     -webkit-font-smoothing: antialiased;
+}
+
+// Dirty override
+.height-override {
+    height: 27vh;
 }
 
 /**
@@ -92,18 +94,6 @@ body {
     text-align: left;
 }
 
-header {
-    text-transform: uppercase;
-    font-size: 15px;
-    font-family: "Roboto Condensed", Arial, Helvetica, sans-serif;
-    font-weight: 400;
-    border-bottom: 1px solid #666;
-    line-height: 15px;
-    padding-bottom: 5px;
-    margin-bottom: 10px;
-    color: #999;
-}
-
 sup {
     font-size: 50%;
     line-height: 50%;
@@ -113,130 +103,132 @@ sup {
  * Module styles.
  */
 
-.module {
-    margin-bottom: 30px;
-}
-
-.region.bottom .module {
-    margin-top: 30px;
-    margin-bottom: 0;
-}
-
-.no-wrap {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-/**
- * Region Definitions.
- */
-
-.region {
-    position: absolute;
-}
-
-.region.fullscreen {
-    position: absolute;
-    top: -60px;
-    left: -60px;
-    right: -60px;
-    bottom: -60px;
-    pointer-events: none;
-}
-
-.region.fullscreen * {
-    pointer-events: auto;
-}
-
-.region.right {
-    right: 0;
-    text-align: right;
-}
-
-.region.top {
+.top-bar {
     top: 0;
 }
 
-.region.top .container {
-    margin-bottom: 25px;
+.right {
+    text-align: right;
 }
 
-.region.bottom .container {
-    margin-top: 25px;
-}
-
-.region.top .container:empty {
-    margin-bottom: 0;
-}
-
-.region.top.center,
-.region.bottom.center {
-    left: 50%;
-    -moz-transform: translateX(-50%);
-    -o-transform: translateX(-50%);
-    -webkit-transform: translateX(-50%);
-    -ms-transform: translateX(-50%);
-    transform: translateX(-50%);
-}
-
-.region.top.right,
-.region.top.left,
-.region.top.center {
-    top: 100%;
-}
-
-.region.bottom {
-    bottom: 0;
-    text-align: center;
-    color: #b3b3b3;
-    font-size: 24px;
-}
-
-.region.bottom .container:empty {
-    margin-top: 0;
-}
-
-.region.bottom.right,
-.region.bottom.center,
-.region.bottom.left {
-    bottom: 100%;
-}
-
-.region.bar {
-    width: 100%;
-    text-align: center;
-}
-
-.region.third,
-.region.middle.center {
-    width: 100%;
-    text-align: center;
-    -moz-transform: translateY(-50%);
-    -o-transform: translateY(-50%);
-    -webkit-transform: translateY(-50%);
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%);
-}
-
-.region.upper.third {
-    top: 33%;
-}
-
-.region.middle.center {
-    top: 50%;
-}
-
-.region.lower.third {
-    top: 66%;
-}
-
-.region.left {
+.left {
     text-align: left;
 }
 
-.region table {
-    width: 100%;
-    border-spacing: 0;
-    border-collapse: separate;
+.middle {
+    text-align: center;
 }
+
+.footer {
+    position: absolute;
+    width: 100%;
+
+    bottom: 0;
+    text-align: center;
+    color: #b3b3b3;
+}
+
+
+
+
+
+
+
+//.module {
+//    margin-bottom: 30px;
+//}
+//
+//.region.bottom .module {
+//    margin-top: 30px;
+//    margin-bottom: 0;
+//}
+//
+//.no-wrap {
+//    white-space: nowrap;
+//    overflow: hidden;
+//    text-overflow: ellipsis;
+//}
+//
+///**
+// * Region Definitions.
+// */
+//
+//
+//
+//.region.fullscreen {
+//    position: absolute;
+//    top: -60px;
+//    left: -60px;
+//    right: -60px;
+//    bottom: -60px;
+//    pointer-events: none;
+//}
+//
+//.region.fullscreen * {
+//    pointer-events: auto;
+//}
+//
+//.region.top {
+//    top: 0;
+//}
+//
+//.region.top .container {
+//    margin-bottom: 25px;
+//}
+//
+//.region.bottom .container {
+//    margin-top: 25px;
+//}
+//
+//.region.top .container:empty {
+//    margin-bottom: 0;
+//}
+//
+//.region.top.center,
+//.region.bottom.center {
+//    left: 50%;
+//    -moz-transform: translateX(-50%);
+//    -o-transform: translateX(-50%);
+//    -webkit-transform: translateX(-50%);
+//    -ms-transform: translateX(-50%);
+//    transform: translateX(-50%);
+//}
+//
+//.region.top.right,
+//.region.top.left,
+//.region.top.center {
+//    top: 100%;
+//}
+//
+//.region.bottom .container:empty {
+//    margin-top: 0;
+//}
+//
+//.region.bottom.right,
+//.region.bottom.center,
+//.region.bottom.left {
+//    bottom: 100%;
+//}
+//
+//
+//.region.upper.third {
+//    top: 33%;
+//}
+//
+//.region.middle.center {
+//    top: 50%;
+//}
+//
+//.region.lower.third {
+//    top: 66%;
+//}
+//
+//.region.left {
+//    text-align: left;
+//}
+//
+//.region table {
+//    width: 100%;
+//    border-spacing: 0;
+//    border-collapse: separate;
+//}
