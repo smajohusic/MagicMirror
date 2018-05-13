@@ -25,7 +25,7 @@ var config = {
     weather: {
       location: 'Sarpsborg',
       locationID: '3140084',
-      appid: '5a92635a509d72a1c5a72fd50af77e56',
+      appid: '',
       updateInterval: 10 * 60000, // every 10 minutes
       units: 'metric', // todo: refactor to use the default units
       timeFormat: 24, // todo: refactor to use the default timeFormat
@@ -55,7 +55,7 @@ var config = {
     },
 
     traffic: {
-      googleApiKey: 'AIzaSyCsXhNBQ6E0WIk6JLqgKE9AusH-zdJimc4',
+      googleApiKey: '',
       zoom: 13,
       updateInterval: 15 * 60000, // 15 minutes
       lat: 59.2749729,
@@ -78,7 +78,7 @@ var config = {
       updateInterval: 60 * 60000, // Every hour
 
       google: {
-        url: 'https://www.googleapis.com/calendar/v3/calendars/smajohusic@gmail.com/events?key=AIzaSyCCNM4zqTJPzRucqFdjrjvSoP-gF50ZcVY',
+        url: 'https://www.googleapis.com/calendar/v3/calendars/{account}/events?key={key}',
         queryParams: {
           singleEvents: true,
           orderBy: 'starttime',
