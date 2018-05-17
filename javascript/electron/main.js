@@ -18,6 +18,7 @@ function createAppWindow(config) {
     webPreferences: {
       nodeIntegration: true, // this has to be true, or loading in js files with require will not work
       zoomFactor: config.electron.zoom,
+      devTools: config.defaults.debug,
     },
     backgroundColor: "#0000",
   };

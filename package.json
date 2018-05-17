@@ -5,26 +5,22 @@
     "email": "smajohusic@gmail.com"
   },
   "private": true,
-  "main": "es6-init.js",
   "scripts": {
     "dev": "NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
     "watch": "NODE_ENV=development node_modules/webpack/bin/webpack.js --watch --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
-    "hot": "NODE_ENV=development webpack-dev-server --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
     "production": "NODE_ENV=production node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
   },
   "devDependencies": {
-    "jshint": "latest",
+    "async": "~0.2.9",
+    "electron": "2.0.1",
     "mocha": "~1.8.2",
     "should": "~1.2.2",
     "sinon": "~1.6.0",
-    "async": "~0.2.9",
     "ws": "~0.4.31"
   },
   "dependencies": {
     "axios": "~0.18.0",
     "bootstrap": "~4.1.1",
-    "electron": "~1.8.4",
-    "electron-compile": "~6.4.2",
     "express": "~4.16.2",
     "express-ipfilter": "~0.3.1",
     "firebase-admin": "~5.8.1",
