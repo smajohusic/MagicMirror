@@ -1,15 +1,15 @@
 var config = {
   // Server setup
   port: 8080,
-  //address: '127.0.0.1',
-  address: 'localhost',
+  address: '127.0.0.1',
+  // address: 'localhost',
   ipWhitelist: ['127.0.0.1', '::ffff:127.0.0.1', '::1'],
 
   electron: {
     options: {},
-    // fullscreen: true,
-    fullscreen: false,
-    autoHideMenuBar: false,
+    fullscreen: true,
+    // fullscreen: false,
+    autoHideMenuBar: true,
     zoom: 1,
   },
 
@@ -17,8 +17,8 @@ var config = {
     language: 'en',
     timeFormat: 24,
     units: 'metric',
-    debug: true,
-    // debug: false,
+    // debug: true,
+    debug: false,
   },
 
   modules: {
@@ -26,7 +26,7 @@ var config = {
       location: 'Sarpsborg',
       locationID: '3140084',
       appid: '',
-      updateInterval: 10 * 60000, // every 10 minutes
+      updateInterval: 15 * 60000, // every 15 minutes
       units: 'metric', // todo: refactor to use the default units
       timeFormat: 24, // todo: refactor to use the default timeFormat
       lang: 'en', // todo: refactor to use the default lang
@@ -46,7 +46,7 @@ var config = {
       apiEnpoints: [
         'http://api.icndb.com/jokes/random'
       ],
-      duration: 10 * 60000, // 10 minutes
+      duration: 15 * 60000, // 15 minutes
     },
 
     clock: {

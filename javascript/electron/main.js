@@ -19,7 +19,7 @@ function createAppWindow(config) {
       nodeIntegration: true, // this has to be true, or loading in js files with require will not work
       zoomFactor: config.electron.zoom,
     },
-    backgroundColor: "#FFFF",
+    backgroundColor: "#0000",
   };
 
   const electronOptions = Object.assign(electronOptionsDefaults, config.electron.options);
