@@ -35,14 +35,13 @@ export default {
         .then(response => {
           this.show = true;
 
-          console.log(response.data);
           // Google returns an array witch object items
           response.data.items.forEach(item => {
             this.calendarEvents.push(item);
           });
         })
         .catch(error => {
-          this.show = true;
+          this.show = false;
           console.log('Error occurred while getting calendar info', error);
         });
 

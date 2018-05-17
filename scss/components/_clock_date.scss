@@ -1,7 +1,12 @@
-.clock-and-date .clock span {
-    font-size: 70px;
+.clock-and-date {
+    margin-top: 10px;
+
+    .clock span {
+        font-size: 90px;
+    }
+
+    .date span {
+        font-size: 25px;
+    }
 }
 
-.clock-and-date .date span {
-    font-size: 25px;
-}

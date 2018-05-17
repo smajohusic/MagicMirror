@@ -2,36 +2,31 @@
     height: 100%;
     width: 100%;
 
-    .title {
-        font-size: 30px;
-    }
-
     .items-container {
-        height: 100%;
-
-        .item {
-            width: 100%;
-
-            .header {
-                .eventName {
-                    font-size: 18px;
-                    color: white;
-                }
-
-                .info {
-                    font-size: 12px;
-                    margin-left: 20px;
-
-                    .creator {
-                        margin-right: 10px;
-                    }
-                }
+        .card-body {
+            p {
+                margin-bottom: 0;
+                color: white;
+                font-size: 14px;
             }
 
-            .attendees {
-                display: inline-block;
-                font-size: 0.65rem;
+            span{
+                font-size: 12px;
             }
+        }
+
+        .card-text {
+            margin-bottom: 0;
+
+            p {
+                font-size: 12px;
+            }
+        }
+
+        .attendees {
+            display: inline-block;
+            font-size: 0.65rem;
         }
     }
 }
+

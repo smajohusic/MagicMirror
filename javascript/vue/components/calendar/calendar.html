@@ -1,17 +1,12 @@
 <div class="calendar p-2" v-if="show">
-    <div class="title text-center bright">Kalender</div>
-
     <div class="items-container">
-        <div class="item" v-for="event in calendarEvents">
-            <div class="header">
-                <div class="clearfix">
-                    <p class="eventName pull-left">{{ event.summary }}</p>
-
-                    <div class="info dimmed d-inline-block">
-                        <span class="creator">
-                            /{{ event.creator.email }} @{{ formatDateString(event.start.dateTime) }}
-                        </span>
-                    </div>
+            <div class="card" v-for="(event, index) in calendarEvents">
+                <div class="card-body">
+                    <p class="card-title">
+                        {{ event.summary }}
+                        <span class="pull-right text-muted">@{{ formatDateString(event.start.dateTime) }}</span>
+                    </p>
+                    <p class="card-text text-muted" v-if="event.description.length">{{ event.description.substring(0, 50) }}</p>
                 </div>
 
                 <!--<div class="attendees" v-if="event.attendees !== undefined">-->
@@ -21,11 +16,9 @@
                         <!--{{ attendee.displayName }}-->
                     <!--</span>-->
                 <!--</div>-->
+
+                <hr v-if="index !== (calendarEvents.length - 1)">
             </div>
         </div>
     </div>
-</div>
-
-<div class="calendar no-events" v-else>
-    Du har ingen kalender-events
 </div>
