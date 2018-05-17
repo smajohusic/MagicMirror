@@ -32,14 +32,14 @@ sudo apt-get install -y libxtst6 libxss1 libgconf-2-4 libnss3 libgtk2.0-0 libnot
 Then install```electron``` globally trough nom
 
 ```
-sudo npm install electron -g
+sudo npm install electron@2.0.1 -g
 ```
 
 If the you are having issues with not enough permission to create folders
 that ```electron``` needs, then run this command:
 
 ```
-sudo npm install electron -g --unsafe-perm=true --allow-root
+sudo npm install electron@2.0.1 -g --unsafe-perm=true --allow-root
 ```
 
 After the installation run ```electron``` in the terminal, then  a ```electron``` window should start.
@@ -56,7 +56,7 @@ sudo apt-get install -y bluetooth bluez libbluetooth-dev libudev-dev
 ```
 
 #### NPM
-From the terminal navigate to the repository that you downloaded by writing ```cd work-in-progress```,
+From the terminal navigate to the repository that you downloaded by writing ```cd MagicMirror```,
 then run ```npm install```
 
 This can take some time based on your connection.

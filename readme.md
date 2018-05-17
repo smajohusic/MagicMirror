@@ -70,7 +70,7 @@ This will take a some time to download and install.
 
 You have now a Raspberry Pi that is ready to download the Git repo by running:
 ```
-    git clone https://github.com/smajohusic/work-in-progress.git
+    git clone https://github.com/smajohusic/MagicMirror.git
 ```
 
 See [Javascript - Node](/docs/javascript_node.md) documentation to install required Node and npm packages.
