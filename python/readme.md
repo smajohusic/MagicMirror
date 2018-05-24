@@ -66,5 +66,7 @@ while True:
         break
 ```
 
+https://www.modmypi.com/blog/raspberry-pi-gpio-sensing-motion-detection
+
 ## Motion sensor and connection
 <img src="../docs/images/r-pi-motion.jpg" alt="Logo" width=400px/> <img src="../docs/images/pir-sensor.jpg" alt="Logo" width=400px/>
