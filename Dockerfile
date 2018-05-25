@@ -19,8 +19,8 @@ RUN apt-get install -y --fix-missing \
     libswscale-dev \
     pkg-config \
     python3-dev \
+    python3-pip \
     python3-numpy \
-    rpi.gpio \
     bluetooth bluez \
     libbluetooth-dev \
     libudev-dev \
