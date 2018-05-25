@@ -1,4 +1,4 @@
-FROM python:3.6.5-slim
+FROM python:3.7-rc-slim
 
 RUN apt-get -y update
 RUN apt-get install -y --fix-missing \
@@ -20,7 +20,6 @@ RUN apt-get install -y --fix-missing \
     pkg-config \
     python3-dev \
     python3-numpy \
-    python-rpi.gpio \
     python3-rpi.gpio \
     bluetooth bluez \
     libbluetooth-dev \
