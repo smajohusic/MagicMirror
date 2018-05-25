@@ -20,7 +20,7 @@ RUN apt-get install -y --fix-missing \
     pkg-config \
     python3-dev \
     python3-numpy \
-    python3-rpi.gpio \
+    rpi.gpio \
     bluetooth bluez \
     libbluetooth-dev \
     libudev-dev \
