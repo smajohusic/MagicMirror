@@ -4,8 +4,8 @@ An overview of installing and configurating the application.
 
 Built with Node, Python, Vue and Html/Css
 
-<img src="docs/images/the_mirror_example.jpg" alt="Logo" width=800px/>
-<img src="docs/images/frame.jpg" alt="Logo" width=400px/>  <img src="docs/images/setup_back.jpg" alt="Logo" width=400px/>
+<img src="docs/images/the_mirror_example.jpg" alt="Logo" width=600px/>
+<img src="docs/images/frame.jpg" alt="Logo" width=400px style="float:left;"/>  <img src="docs/images/setup_back.jpg" alt="Logo" width=400px/>
 
 #### Thanks to:
 - https://github.com/MichMich/MagicMirror
