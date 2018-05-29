@@ -4,7 +4,7 @@ An overview of installing and configurating the application.
 
 Built with Node, Python, Vue and Html/Css
 
-<img src="docs/images/the_mirror_example.jpg" alt="Logo" width=600px/>
+<img src="docs/images/the_mirror_example.jpg" alt="Logo"/>
 
 Front            |  Back
 :-------------------------:|:-------------------------:
