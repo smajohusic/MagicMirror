@@ -11,6 +11,7 @@ To enable pm2 at start-up, run the command
 
 This will ouput a line of code that you need to execute in order to allow pm2 to run at start-up
 
+
 Create a script that will run with pm2
 `
 cd ~
@@ -21,6 +22,7 @@ Add the following lines
 
 `
 cd ~/MagicMirror
+
 DISPLAY=:0 npm start
 `
 
