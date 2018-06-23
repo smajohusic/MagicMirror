@@ -33,6 +33,7 @@ Front            |  Back
 - [Configuration](/docs/config.md) (required)
 - [Python](/docs/python.md) (optional)
     - Docker?
+- [Auto start](/docs/autostart.md) (optional)
 
 ## General
 
