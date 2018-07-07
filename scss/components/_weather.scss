@@ -12,25 +12,55 @@
         transform: translate(0, -3px);
     }
 
-    .weathericon {
-        font-size: 140px;
-        color: white;
-    }
     .currentweather  .temp {
         display: inline-block;
         margin-left: 40px;
         color: #ffffff;
-
     }
+
     .currentweather  .title {
         width: 110px;
         display: inline-block;
         color: #b3b3b3;
     }
 
-    .header {
-        color: #ffffff;
-        text-transform: uppercase;
-        font-size: 24px;
+    .top {
+        width: 100%;
+
+        .weathericon {
+            font-size: 140px;
+            color: white;
+            line-height: 1;
+        }
+
+        .temp {
+            font-size: 50px;
+            color: #ffffff;
+        }
+
+        .celsius-icon {
+            font-size: 30px;
+        }
+
+        .center {
+            margin-top: auto;
+            margin-bottom: auto;
+        }
+    }
+
+    .bottom {
+        width: 100%;
+
+        .info {
+            color: #ffffff;
+            text-transform: uppercase;
+            font-size: 24px;
+            text-align: center;
+        }
+
+        .wind {
+            color: #b3b3b3;
+            font-size: 20px;
+        }
     }
 }

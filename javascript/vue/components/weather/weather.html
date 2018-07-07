@@ -1,12 +1,19 @@
 <div class="currentweather p-2" v-if="visible">
-    <div class="weathericon pull-left">
-        <div :class="'wi ' + weatherType"></div>
+    <div class="row top" style="height: 55%">
+        <div :class="'col-6 weathericon wi ' + weatherType"></div>
+        <div class="col-6 text-center center">
+            <h1 class="temp">{{ temperature }}</h1>
+            <p class="celsius-icon">ºC</p>
+        </div>
     </div>
 
-    <div class="temp pull-right">
-        <span class="header">{{ fetchedLocatioName }}</span></br>
-        <span class="title">Sun:</span> <span :class="'wi ' + sunriseSunsetIcon"></span> {{ sunriseSunsetTime }}<br/>
-        <span class="title">Wind:</span> {{ windSpeed }} m/s, {{ windDirection }} <template v-if="windDeg">, {{ windDeg }}º</template><br/>
-        <span class="title">Temp:</span> {{ temperature }} ºC
+    <div class="row bottom">
+        <div class="info" style="width: 100%;">
+            <p class="title">{{ fetchedLocatioName }} - <span :class="'wi ' + sunriseSunsetIcon"></span> {{ sunriseSunsetTime }}</p>
+            <p class="wind">
+                Wind:</span> {{ windSpeed }} m/s, {{ windDirection }}
+                <template v-if="windDeg">, {{ windDeg }}º</template>
+            </p>
+        </div>
     </div>
 </div>
