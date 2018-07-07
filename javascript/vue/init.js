@@ -12,6 +12,7 @@ import jokes from './components/jokes/jokes';
 import traffic from './components/traffic/traffic';
 import calendar from './components/calendar/calendar';
 import iphone from './components/iphone/iphone';
+import camera from './components/camera/CameraComponent';
 
 const app = new Vue({
   el: '#app',
@@ -32,6 +33,7 @@ const app = new Vue({
     traffic: traffic,
     calendar: calendar,
     iphone: iphone,
+    camera: camera,
   },
 
   filters: {},

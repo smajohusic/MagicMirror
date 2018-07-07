@@ -1,4 +1,4 @@
-## Auto start
+### Auto start
 
 Start by installing pm2 with npm
 
@@ -36,3 +36,39 @@ At last, save it
 
 To make sure it works, reboot your pi and wait
 `sudo reboot now`
+
+### Open GL - decrease Electron's CPU usage.
+
+Use the experimental desktop Open GL driver by adding the following line to _/boot/config.txt_:
+
+````
+sudo nano /boot/config.txt
+````
+Add the following line:
+````
+dtoverlay=vc4-kms-v3d
+````
+ℹ️ _Activating the Open GL drive can also be accomplished by using the `rasps-config` tool by running `sudo raspi-config`. Go to the `Advanced Options` menu and select `A7 GL Driver`. Next, select the `G1 GL (Full KMS) OpenGL desktop driver with full KMS`. Note that this option will be selected in the menu even when the GL drive is not yet configured._ 
+
+### Disabling the screensaver
+_(Please note, you will need the x11-xserver-utils package installed.)_
+
+edit ~/.config/lxsession/LXDE-pi/autostart:
+````
+sudo nano ~/.config/lxsession/LXDE-pi/autostart
+````
+Add the following lines:
+````
+@xset s noblank
+@xset s off
+@xset -dpms
+````
+
+Edit _/etc/lightdm/lightdm.conf_:
+````
+sudo nano /etc/lightdm/lightdm.conf
+````
+Add the following line below [SeatDefaults]
+````
+xserver-command=X -s 0 -dpms
+````

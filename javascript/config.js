@@ -24,9 +24,9 @@ var config = {
       locationID: '3140084',
       appid: '',
       updateInterval: 15 * 60000, // every 15 minutes
-      units: 'metric', // todo: refactor to use the default units
-      timeFormat: 24, // todo: refactor to use the default timeFormat
-      lang: 'en', // todo: refactor to use the default lang
+      units: 'metric',
+      timeFormat: 24,
+      lang: 'en',
 
       apiVersion: "2.5",
       apiBase: "https://api.openweathermap.org/data/",
